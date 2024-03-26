@@ -1,7 +1,8 @@
-import { Box, Container } from "@mui/material";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { Navigation } from "./components";
-import { Home, Settings, Recomend } from "./Pages";
+import { Box, Container } from '@mui/material';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+import { Navigation } from './components';
+import { Home, Settings, Recomend } from './Pages';
 // import { createTheme } from "@mui/material/styles";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <Navigation />
       <Box
         sx={{
-          backgroundColor: (theme) => theme.palette.grey[100],
+          backgroundColor: theme => theme.palette.grey[100],
         }}
       >
         <Container maxWidth="xl">

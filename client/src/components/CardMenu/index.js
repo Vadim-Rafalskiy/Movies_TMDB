@@ -1,15 +1,12 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box } from '@mui/material';
 
-// const options = ['Select'];
-
 const ITEM_HEIGHT = 48;
 
-const CardMenu = ({ onClick, optionCardMenu }) => {
+const CardMenu = ({ children }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = event => {
@@ -50,11 +47,7 @@ const CardMenu = ({ onClick, optionCardMenu }) => {
           },
         }}
       >
-        {optionCardMenu.map(option => (
-          <MenuItem key={option} onClick={onClick}>
-            {option}
-          </MenuItem>
-        ))}
+        {children}
       </Menu>
     </Box>
   );

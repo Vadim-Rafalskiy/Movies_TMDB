@@ -2,9 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "server": "node ./src/server.mjs",
+    "server": "nodemon ./src/server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.10.1",
-    "graphql": "^16.8.1"
+    "axios": "^1.6.8",
+    "date-fns": "^3.6.0",
+    "graphql": "^16.8.1",
+    "nodemon": "^3.1.0"
   }
 }
