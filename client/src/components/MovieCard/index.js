@@ -1,34 +1,50 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { CardMenu } from '../index.js';
-import MenuItem from '@mui/material/MenuItem';
-import { Card, CardMedia, CardContent, Typography, styled } from '@mui/material';
+// import { CardMenu } from '../index.js';
+// import MenuItem from '@mui/material/MenuItem';
+import { Card, CardMedia, CardContent, Typography, Tooltip, styled } from '@mui/material';
+import { CardBackdrop } from '../CardBackdrop';
 
 const MovieCard = ({ movie, onCardSelect }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const CardInfo = styled(CardContent)(({ theme }) => ({
     '&:last-child': {
-      paddingBottom: theme.spacing(2),
+      padding: theme.spacing(1, 2),
     },
   }));
 
+  const CardBox = styled(Card)(({ theme }) => ({
+    maxWidth: 233,
+    borderRadius: 2,
+  }));
+
   return (
-    <Card sx={{ maxWidth: 250, borderRadius: 2, position: 'relative' }}>
-      <CardMenu>
-        <MenuItem onClick={() => onCardSelect(movie)}>Select</MenuItem>
-      </CardMenu>
+    <CardBox onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+      <CardBackdrop open={isOpen} onClick={() => onCardSelect(movie)}>
+        <CardMedia component="img" height="350" image={movie.posterPath} alt={movie.title} />
+      </CardBackdrop>
 
-      <CardMedia component="img" height="350" image={movie.posterPath} alt={movie.title} />
-
-      <CardInfo>
-        <Typography variant="h6" color="text.secondary">
-          {movie.title}
-        </Typography>
+      <CardInfo sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Tooltip title={movie.title}>
+          <Typography
+            sx={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+            variant="h6"
+            color="text.secondary"
+          >
+            {movie.title}
+          </Typography>
+        </Tooltip>
 
         <Typography variant="subtitle1" color="text.secondary">
           {movie.releaseDate}
         </Typography>
       </CardInfo>
-    </Card>
+    </CardBox>
   );
 };
 

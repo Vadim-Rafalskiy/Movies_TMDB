@@ -23,11 +23,6 @@ const CardMenu = ({ children }) => {
           borderRadius: '50%',
           backgroundColor: 'rgba(255, 255, 255, 0.7)',
         }}
-        aria-label="more"
-        id="long-button"
-        aria-controls={open ? 'long-menu' : undefined}
-        aria-expanded={open ? 'true' : undefined}
-        aria-haspopup="true"
         onClick={handleClick}
       >
         <MoreVertIcon />
@@ -40,12 +35,6 @@ const CardMenu = ({ children }) => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        PaperProps={{
-          style: {
-            maxHeight: ITEM_HEIGHT * 4.5,
-            width: '20ch',
-          },
-        }}
       >
         {children}
       </Menu>
