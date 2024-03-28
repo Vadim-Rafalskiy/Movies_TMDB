@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
+
 import { Backdrop, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
-export const CardBackdrop = ({ open, children, onClick }) => {
+const CardBackdrop = ({ open, children, onClick }) => {
   const BackdropCard = styled(Backdrop)(({ theme }) => ({
     // color: '#ffffff',
     color: 'rgba(0, 0, 0, 0.3)',
@@ -34,3 +36,10 @@ export const CardBackdrop = ({ open, children, onClick }) => {
     </div>
   );
 };
+
+CardBackdrop.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+export default CardBackdrop;
