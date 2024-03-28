@@ -1,17 +1,16 @@
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Box } from '@mui/material';
 
-const ITEM_HEIGHT = 48;
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Box, IconButton, Menu } from '@mui/material';
 
 const CardMenu = ({ children }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
