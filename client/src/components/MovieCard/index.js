@@ -1,9 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-// import { CardMenu } from '../index.js';
-// import MenuItem from '@mui/material/MenuItem';
 import { Card, CardMedia, CardContent, Typography, Tooltip, styled } from '@mui/material';
-import { CardBackdrop } from '../CardBackdrop';
+import { CardBackdrop } from '../';
 
 const MovieCard = ({ movie, onCardSelect }) => {
   const [isOpen, setIsOpen] = React.useState(false);
