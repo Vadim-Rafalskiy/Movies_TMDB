@@ -1,65 +1,74 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import { CardContent, CardMedia, Typography, MenuItem, styled } from '@mui/material';
-// import  from '@mui/material/Typography';
+import { CardContent, CardMedia, Typography, MenuItem, Tooltip, styled } from '@mui/material';
 import PropTypes from 'prop-types';
 import { CardMenu } from '../index.js';
-// import  from '@mui/material/MenuItem';
-
-// import IconButton from '@mui/material/IconButton';
-// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-// import SkipNextIcon from '@mui/icons-material/SkipNext';
-
-// import { runtime } from 'webpack';
 
 const MovieCardSelected = ({ movie, onCardDelete }) => {
-  // const theme = useTheme();
-  // const onClick = () => {};
-  const CardInfo = styled(CardContent)(({ theme }) => ({
+  const MovieInfo = styled(CardContent)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
+
     '&:last-child': {
       paddingBottom: theme.spacing(2),
     },
   }));
+
+  const MoovieCard = styled(Card)(({ theme }) => ({
+    position: 'relative',
+    display: 'flex',
+    '&:not(:last-child)': {
+      marginBottom: theme.spacing(1),
+    },
+  }));
+
   return (
-    <Card sx={{ position: 'relative', display: 'flex', margin: '10px' }}>
-      <CardMenu>
-        <MenuItem
-          onClick={() => {
-            onCardDelete(movie);
-          }}
-        >
-          Delete
-        </MenuItem>
-      </CardMenu>
-      <CardMedia
-        component="img"
-        sx={{ width: 100, height: 120 }}
-        image={movie.posterPath}
-        alt={movie.title}
-      />
-      <CardInfo>
-        {/* <CardContent sx={{ flex: '1 0 auto', padding: 2 }}> */}
-        <Typography component="div" variant="h6">
-          {movie.title}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-          {movie.releaseDate}
-        </Typography>
-        {movie.genres?.length ? (
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            Genre: {movie.genres[0].name}
+    <Tooltip title={movie.title}>
+      <MoovieCard>
+        <CardMenu>
+          <MenuItem
+            onClick={() => {
+              onCardDelete(movie);
+            }}
+          >
+            Delete
+          </MenuItem>
+        </CardMenu>
+        <CardMedia
+          component="img"
+          sx={{ width: '100px' /*, height: '120px'*/ }}
+          image={movie.posterPath}
+          alt={movie.title}
+        />
+        <MovieInfo>
+          <Typography
+            sx={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+            component="div"
+            variant="h6"
+          >
+            {movie.title}
           </Typography>
-        ) : null}
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-          Length: {movie.runtime}
-        </Typography>
-        {/* </CardContent> */}
-      </CardInfo>
-    </Card>
+
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            {movie.releaseDate}
+          </Typography>
+
+          {movie.genres?.length ? (
+            <Typography variant="subtitle1" color="text.secondary" component="div">
+              Genre: {movie.genres[0].name}
+            </Typography>
+          ) : null}
+
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            Length: {movie.runtime}
+          </Typography>
+        </MovieInfo>
+      </MoovieCard>
+    </Tooltip>
   );
 };
 
