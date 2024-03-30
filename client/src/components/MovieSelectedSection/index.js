@@ -26,6 +26,13 @@ const MovieList = styled(Box)(({ theme }) => ({
 }));
 
 const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
+  const onSubmit = ({ listName }) => {
+    const listIds = movieSelectedItems.map(({ key }) => key);
+    const link = `${window.location.host}/recommend?title=${listName}&ids=${listIds.join()}`;
+    console.log('link--', link);
+    debugger;
+  };
+
   const movieSelectedItems = selectedMovies.map(movie => (
     <MovieCardSelected key={movie.id} movie={movie} onCardDelete={onCardDelete} />
   ));
@@ -46,7 +53,7 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
   return (
     <SelectedMovies elevation={6}>
       <MovieList>{movieSelectedItems}</MovieList>
-      <MovieCardSelectedForm />
+      <MovieCardSelectedForm onSubmit={onSubmit} />
     </SelectedMovies>
   );
 };
