@@ -1,6 +1,7 @@
 import { Paper, CardMedia, styled, Typography, Box } from '@mui/material';
 import MovieCardSelected from '../MovieCardSelected';
 import noMoviesImage from '../../assets/film.jpg';
+import MovieCardSelectedForm from '../MovieCardSelectedForm';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -24,25 +25,30 @@ const MovieList = styled(Box)(({ theme }) => ({
   overflowX: 'hidden',
 }));
 
-export const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
+const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
   const movieSelectedItems = selectedMovies.map(movie => (
     <MovieCardSelected key={movie.id} movie={movie} onCardDelete={onCardDelete} />
   ));
 
   if (!selectedMovies.length) {
     return (
-      <SelectedMovies elevation={6}>
-        <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
-        <Typography variant="h5" mt={2}>
-          No selected movies
-        </Typography>
-      </SelectedMovies>
+      <>
+        <SelectedMovies elevation={6}>
+          <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
+          <Typography variant="h5" mt={2}>
+            No selected movies
+          </Typography>
+        </SelectedMovies>
+      </>
     );
   }
 
   return (
     <SelectedMovies elevation={6}>
       <MovieList>{movieSelectedItems}</MovieList>
+      <MovieCardSelectedForm />
     </SelectedMovies>
   );
 };
+
+export default MovieSelectedSection;
