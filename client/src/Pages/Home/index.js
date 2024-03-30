@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import { Grid, Box, Paper, Pagination } from '@mui/material';
+import { Grid, Box, Paper } from '@mui/material';
 
 import { MovieCard, MovieSelectedSection, PagePagination } from '../../components';
-import { useMovies } from '../../hooks/index.js';
+import { useMovies } from '../../hooks/useMovies';
 import { MOVIES_QUERY } from './querys.js';
 
 const Home = () => {
@@ -54,17 +54,6 @@ const Home = () => {
                 page={page}
                 pageCount={pageCount}
               />
-              {/* <Box sx={{ flexGrow: 1, padding: 1, display: 'flex', justifyContent: 'center' }}>
-                <Pagination
-                  onChange={paginationHandler}
-                  siblingCount={0}
-                  page={page}
-                  count={pageCount}
-                  size="large"
-                  variant="outlined"
-                  color="primary"
-                />
-              </Box> */}
             </Box>
           </Paper>
         </Grid>
