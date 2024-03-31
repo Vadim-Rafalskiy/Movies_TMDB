@@ -2,7 +2,8 @@ import { Box, Container } from '@mui/material';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { Navigation } from './components';
-import { Home, Settings, Recomend } from './Pages';
+import { Home, Settings, Recommended } from './Pages';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="settings" element={<Settings />} />
-            <Route path="recomend" element={<Recomend />} />
+            <Route path="recommended" element={<Recommended />} />
           </Routes>
         </Container>
       </Box>

@@ -1,5 +1,5 @@
-import Home from "./Home";
-import Settings from "./Settings";
-import Recomend from "./Recomend";
+import Home from './Home';
+import Settings from './Settings';
+import Recommended from './Recomend';
 
-export { Home, Recomend, Settings };
+export { Home, Recommended, Settings };
