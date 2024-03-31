@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { Grid, Box, Paper } from '@mui/material';
+import { ToastContainer } from 'react-toastify';
 
 import { MovieCard, MovieSelectedSection, PagePagination } from '../../components';
 import { useMovies } from '../../hooks/useMovies';
@@ -61,6 +62,19 @@ const Home = () => {
           <MovieSelectedSection onCardDelete={onCardDelete} selectedMovies={selectedMovies} />
         </Grid>
       </Grid>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        stacked
+      />
     </Box>
   );
 };

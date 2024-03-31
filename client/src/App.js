@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 import { Navigation } from './components';
 import { Home, Settings, Recomend } from './Pages';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
