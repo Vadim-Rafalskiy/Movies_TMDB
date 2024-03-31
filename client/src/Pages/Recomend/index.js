@@ -1,4 +1,11 @@
-const Recomend = () => {
-  return <>Recomend</>;
+import { SocialShare } from '../../components';
+
+const Recommended = () => {
+  return (
+    <>
+      Recommended
+      <SocialShare />
+    </>
+  );
 };
-export default Recomend;
+export default Recommended;

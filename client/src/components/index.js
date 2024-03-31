@@ -6,6 +6,8 @@ import PagePagination from './PagePagination';
 import CardBackdrop from './CardBackdrop';
 import MovieCardSelectedForm from './MovieCardSelectedForm';
 import MovieSelectedSection from './MovieSelectedSection';
+import ConfirmModal from './ConfirmModal';
+import SocialShare from './SocialChare';
 
 export {
   Navigation,
@@ -16,4 +18,6 @@ export {
   MovieCardSelected,
   MovieSelectedSection,
   CardBackdrop,
+  ConfirmModal,
+  SocialShare,
 };

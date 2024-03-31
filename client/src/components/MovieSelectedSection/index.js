@@ -1,7 +1,7 @@
 import { Paper, CardMedia, styled, Typography, Box } from '@mui/material';
-import MovieCardSelected from '../MovieCardSelected';
 import noMoviesImage from '../../assets/film.jpg';
-import MovieCardSelectedForm from '../MovieCardSelectedForm';
+import { MovieCardSelectedForm, ConfirmModal, MovieCardSelected } from '../../components';
+import { useState } from 'react';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -26,11 +26,25 @@ const MovieList = styled(Box)(({ theme }) => ({
 }));
 
 const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
+  const [link, setLink] = useState('');
+  const [ListName, setListName] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
   const onSubmit = ({ listName }) => {
+    setListName(listName);
+    const normalizeListName = listName.trim().split(' ').join('-');
+
     const listIds = movieSelectedItems.map(({ key }) => key);
-    const link = `${window.location.host}/recommend?title=${listName}&ids=${listIds.join()}`;
-    console.log('link--', link);
-    debugger;
+    setLink(`${window.location.host}/recommend?title=${normalizeListName}&ids=${listIds.join()}`);
+    handleModalOpen();
   };
 
   const movieSelectedItems = selectedMovies.map(movie => (
@@ -51,10 +65,18 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
   }
 
   return (
-    <SelectedMovies elevation={6}>
-      <MovieList>{movieSelectedItems}</MovieList>
-      <MovieCardSelectedForm onSubmit={onSubmit} />
-    </SelectedMovies>
+    <>
+      <SelectedMovies elevation={6}>
+        <MovieList>{movieSelectedItems}</MovieList>
+        <MovieCardSelectedForm onSubmit={onSubmit} />
+      </SelectedMovies>
+      <ConfirmModal
+        title={ListName}
+        link={link}
+        onOpen={isModalOpen}
+        handleModalClose={handleModalClose}
+      />
+    </>
   );
 };
 
