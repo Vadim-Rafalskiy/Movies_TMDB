@@ -1,6 +1,16 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import { CardContent, CardMedia, Typography, MenuItem, Tooltip, styled } from '@mui/material';
+import {
+  CardContent,
+  CardMedia,
+  Typography,
+  IconButton,
+  MenuItem,
+  Tooltip,
+  styled,
+  ListItem,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import PropTypes from 'prop-types';
 import { CardMenu } from '../index.js';
 
@@ -15,6 +25,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
   }));
 
   const MoovieCard = styled(Card)(({ theme }) => ({
+    boxShadow: theme.shadows[5],
     position: 'relative',
     display: 'flex',
     '&:not(:last-child)': {
@@ -55,16 +66,6 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
 
           <Typography variant="subtitle1" color="text.secondary" component="div">
             {movie.releaseDate}
-          </Typography>
-
-          {movie.genres?.length ? (
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              Genre: {movie.genres[0].name}
-            </Typography>
-          ) : null}
-
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            Length: {movie.runtime}
           </Typography>
         </MovieInfo>
       </MoovieCard>

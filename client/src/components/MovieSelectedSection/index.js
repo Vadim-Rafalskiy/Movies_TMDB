@@ -13,6 +13,7 @@ const SelectedMovies = styled(Paper)(({ theme }) => ({
   top: theme.spacing(2),
   border: '5px solid white',
   display: 'flex',
+
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
@@ -40,10 +41,10 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
 
   const onSubmit = ({ listName }) => {
     setListName(listName);
-    const normalizeListName = listName.trim().split(' ').join('-');
+    const listNameSlug = listName.trim().split(' ').join('-');
 
     const listIds = movieSelectedItems.map(({ key }) => key);
-    setLink(`${window.location.host}/recommend?title=${normalizeListName}&ids=${listIds.join()}`);
+    setLink(`${window.location.host}/recommended?title=${listNameSlug}&ids=${listIds.join()}`);
     handleModalOpen();
   };
 
@@ -53,14 +54,12 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
 
   if (!selectedMovies.length) {
     return (
-      <>
-        <SelectedMovies elevation={6}>
-          <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
-          <Typography variant="h5" mt={2}>
-            No selected movies
-          </Typography>
-        </SelectedMovies>
-      </>
+      <SelectedMovies elevation={6}>
+        <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
+        <Typography variant="h5" mt={2}>
+          No selected movies
+        </Typography>
+      </SelectedMovies>
     );
   }
 

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import { Typography, Modal } from '@mui/material';
 import LinkFild from './LinkFild';
+import { SocialShare } from '../../components';
 
 const style = {
   position: 'absolute',
@@ -16,7 +16,6 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
 const ConfirmModal = ({ title, link, onOpen, handleModalClose }) => {
   return (
     <div>
@@ -37,6 +36,16 @@ const ConfirmModal = ({ title, link, onOpen, handleModalClose }) => {
             {title}
           </Typography>
           <LinkFild link={link} />
+          <Box
+            sx={{
+              mt: '10px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <SocialShare direction="row" useFlexGap title={title} link={link} />
+          </Box>
         </Box>
       </Modal>
     </div>

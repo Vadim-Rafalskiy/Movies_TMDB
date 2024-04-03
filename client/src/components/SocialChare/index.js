@@ -1,4 +1,4 @@
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, Stack, styled } from '@mui/material';
 
 import {
   EmailShareButton,
@@ -10,25 +10,25 @@ import {
 
 import { EmailIcon, FacebookIcon, TelegramIcon, ViberIcon, WhatsappIcon } from 'react-share';
 
-const SocialShare = () => {
+const SocialShare = ({ title, link, ...props }) => {
   return (
-    <Box>
-      <EmailShareButton>
+    <Stack sx={{ p: '5px', gap: '10px' }} {...props}>
+      <EmailShareButton subject={'Hove a nice list with movies: ' + String(title)} url={link}>
         <EmailIcon size={32} round={true} />
       </EmailShareButton>
-      <FacebookShareButton>
+      <FacebookShareButton hashtag="#movieList" url={link}>
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
-      <TelegramShareButton>
+      <TelegramShareButton url={link}>
         <TelegramIcon size={32} round={true} />
       </TelegramShareButton>
-      <ViberShareButton>
+      <ViberShareButton url={link}>
         <ViberIcon size={32} round={true} />
       </ViberShareButton>
-      <WhatsappShareButton>
+      <WhatsappShareButton url={link}>
         <WhatsappIcon size={32} round={true} />
       </WhatsappShareButton>
-    </Box>
+    </Stack>
   );
 };
 

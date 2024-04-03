@@ -20,8 +20,8 @@ const LinkFild = ({ link }) => {
       </CopyToClipboard>
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
       <IconButton
-        href="/recommend"
-        // href={link}
+        // href="/recommend"
+        href={link}
         target="_blank"
         color="primary"
         sx={{ p: '10px' }}

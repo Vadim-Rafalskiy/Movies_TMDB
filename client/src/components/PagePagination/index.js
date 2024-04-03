@@ -3,13 +3,14 @@ import { Box, Pagination, styled } from '@mui/material';
 const PagePagination = ({ pageCount, page, paginationHandler }) => {
   const NewPagination = styled(Pagination)(({ theme }) => ({
     padding: theme.spacing(1),
+    border: '1px solid #a6a6a6',
+    borderRadius: '5px',
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
     size: 'large',
     variant: 'outlined',
     color: 'primary',
     [theme.siblingCount]: '0',
-    // [theme.breakpoints.down('sm')]: {
-    // siblingCount: '0',
-    // },
   }));
 
   return (
