@@ -8,6 +8,7 @@ import MovieCardSelectedForm from './MovieCardSelectedForm';
 import MovieSelectedSection from './MovieSelectedSection';
 import ConfirmModal from './ConfirmModal';
 import SocialShare from './SocialChare';
+import MovieCardRecommended from './MovieCardRecommended';
 
 export {
   Navigation,
@@ -20,4 +21,5 @@ export {
   CardBackdrop,
   ConfirmModal,
   SocialShare,
+  MovieCardRecommended,
 };
