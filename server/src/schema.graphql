@@ -1,5 +1,7 @@
 type Query {
   movies(page: Int): Movies
+  # moviesById(movieid: Int): Movie
+  moviesByIds(ids: [Int]): [Movie]
 }
 
 type Movies {
@@ -13,6 +15,7 @@ type Movie {
   id: ID!
   title: String!
   originalTitle: String
+  runtime: Int
   releaseDate(format: String): String!
   posterPath: String
   genres: [Genres]
