@@ -8,7 +8,6 @@ import { fileURLToPath } from "url";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
-// const Query = require("./resolvers/Query");
 import * as Query from "./resolvers/Query.js";
 
 // Отримання шляху до поточного файлу
@@ -25,6 +24,10 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const { url } = await startStandaloneServer(server);
+const { url } = await startStandaloneServer(server, {
+  context: async ({ req, res }) => ({
+    locale: req?.headers?.locale || "en-US",
+  }),
+});
+
 console.log(`🚀 Server ready at ${url}`);
-// server.listen().then(({ url }) => console.log(`Server is running on ${url}`));

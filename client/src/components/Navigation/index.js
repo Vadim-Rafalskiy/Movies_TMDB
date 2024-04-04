@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useContext, useCallback } from 'react';
+import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
     AppBar,
@@ -19,11 +19,10 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 
+import LanguageButton from './LanguageButton';
 
 const Navigation = () => {
     const [isDrowerOpen, setDrowerOpen] = useState(false);
-
-    // debugger;
     const list = () => (
         <Box sx={{ width: 250 }} role="presentation">
             <List>
@@ -44,7 +43,7 @@ const Navigation = () => {
     return (
         <Box>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar sx={{ maxWidth: 'calc(100vw - 2%)' }}>
                     <IconButton
                         onClick={() => setDrowerOpen(true)}
                         size="large"
@@ -61,31 +60,7 @@ const Navigation = () => {
                             Recomendation films
                         </Typography>
                     </Link>
-                    <Box>
-                        {state.locale}
-                        <Button
-                            disabled={state.locale === LOCALES.ENGLISH}
-                            sx={{ my: 2, color: 'white' }}
-                            onClick={() => setLanguage(LOCALES.ENGLISH)}
-                        >
-                            ENGLISH
-                        </Button>
-
-                        <Button
-                            disabled={state.locale === LOCALES.UKRAINIAN}
-                            sx={{ my: 2, color: 'white' }}
-                            onClick={() => setLanguage(LOCALES.UKRAINIAN)}
-                        >
-                            Українська
-                        </Button>
-                        <Button
-                            disabled={state.locale === LOCALES.POLISH}
-                            sx={{ my: 2, color: 'white' }}
-                            onClick={() => setLanguage(LOCALES.POLISH)}
-                        >
-                            Polski
-                        </Button>
-                    </Box>
+                    <LanguageButton />
                     <Box
                         sx={{
                             display: { xs: 'none', md: 'flex' },
