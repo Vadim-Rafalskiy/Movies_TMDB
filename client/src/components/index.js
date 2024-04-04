@@ -11,15 +11,15 @@ import SocialShare from './SocialChare';
 import MovieCardRecommended from './MovieCardRecommended';
 
 export {
-  Navigation,
-  CardMenu,
-  PagePagination,
-  MovieCardSelectedForm,
-  MovieCard,
-  MovieCardSelected,
-  MovieSelectedSection,
-  CardBackdrop,
-  ConfirmModal,
-  SocialShare,
-  MovieCardRecommended,
+    Navigation,
+    CardMenu,
+    PagePagination,
+    MovieCardSelectedForm,
+    MovieCard,
+    MovieCardSelected,
+    MovieSelectedSection,
+    CardBackdrop,
+    ConfirmModal,
+    SocialShare,
+    MovieCardRecommended,
 };
