@@ -26,6 +26,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
     }));
 
     const MoovieCard = styled(Card)(({ theme }) => ({
+        border: '1px solid #ccc',
         boxShadow: theme.shadows[5],
         position: 'relative',
         display: 'flex',
