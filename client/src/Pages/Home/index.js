@@ -62,11 +62,12 @@ const Home = () => {
                     <MovieSelectedSection
                         onCardDelete={onCardDelete}
                         selectedMovies={selectedMovies}
+                        sx={{ maxWidth: '320px' }}
                     />
                 </Grid>
             </Grid>
             <ToastContainer
-                position="bottom-right"
+                position="bottom-left"
                 autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}

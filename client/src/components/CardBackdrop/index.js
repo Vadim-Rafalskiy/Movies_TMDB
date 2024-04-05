@@ -2,11 +2,10 @@ import PropTypes from 'prop-types';
 
 import { Backdrop, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 
 const CardBackdrop = ({ open, children, onClick }) => {
     const BackdropCard = styled(Backdrop)(({ theme }) => ({
-        // color: '#ffffff',
         color: 'rgba(0, 0, 0, 0.3)',
         position: 'absolute',
         zIndex: theme => theme.zIndex.drawer + 1,
@@ -18,18 +17,14 @@ const CardBackdrop = ({ open, children, onClick }) => {
                 <IconButton
                     sx={{
                         borderRadius: '50%',
-                        backgroundColor: 'rgba(255, 255, 255, 0.7)',
                         position: 'absolute',
                         top: 'auto',
                         right: 'auto',
-                        '&:hover': {
-                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        },
                     }}
-                    //   aria-haspopup="true"
+                    aria-haspopup="true"
                     onClick={onClick}
                 >
-                    <AddCircleOutlineOutlinedIcon />
+                    <AddBoxOutlinedIcon sx={{ fill: '#fff', width: '80px', height: '80px' }} />
                 </IconButton>
             </BackdropCard>
             {children}

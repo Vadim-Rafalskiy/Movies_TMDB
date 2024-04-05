@@ -8,7 +8,7 @@ import {
     MenuItem,
     Tooltip,
     styled,
-    ListItem,
+    Box,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PropTypes from 'prop-types';
@@ -18,6 +18,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
     const MovieInfo = styled(CardContent)(({ theme }) => ({
         display: 'flex',
         flexDirection: 'column',
+        width: '100%',
 
         '&:last-child': {
             paddingBottom: theme.spacing(2),
@@ -56,7 +57,6 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
                         sx={{
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
                         }}
                         component="div"
                         variant="h6"

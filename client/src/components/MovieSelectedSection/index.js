@@ -22,8 +22,9 @@ const SelectedMovies = styled(Paper)(({ theme }) => ({
 const MovieList = styled(Box)(({ theme }) => ({
     height: '100%',
     width: '100%',
-    overflow: 'scroll',
+    overflowY: 'auto',
     overflowX: 'hidden',
+    scrollbarWidth: 'thin',
 }));
 
 const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
@@ -51,7 +52,12 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
     };
 
     const movieSelectedItems = selectedMovies.map(movie => (
-        <MovieCardSelected key={movie.id} movie={movie} onCardDelete={onCardDelete} />
+        <MovieCardSelected
+            sx={{ marginRight: '5px', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+            key={movie.id}
+            movie={movie}
+            onCardDelete={onCardDelete}
+        />
     ));
 
     if (!selectedMovies.length) {
@@ -68,7 +74,9 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
     return (
         <>
             <SelectedMovies elevation={6}>
-                <MovieList>{movieSelectedItems}</MovieList>
+                <MovieList>
+                    <Box sx={{ marginRight: '5px' }}>{movieSelectedItems}</Box>
+                </MovieList>
                 <MovieCardSelectedForm onSubmit={onSubmit} />
             </SelectedMovies>
             <ConfirmModal
