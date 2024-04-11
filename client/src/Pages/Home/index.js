@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import { Grid, Box, Paper } from '@mui/material';
+import { Grid, Box, Paper, LinearProgress } from '@mui/material';
 import { ToastContainer } from 'react-toastify';
 
 import { MovieCard, MovieSelectedSection, PagePagination } from '../../components';
@@ -43,7 +43,7 @@ const Home = () => {
                 <Grid item xs={12} md={9}>
                     {/* <Paper elevation={6}> */}
                     <Box sx={{ flexGrow: 1, padding: 1 }}>
-                        {loading && '...Loading'}
+                        {loading && <LinearProgress />}
                         {data && (
                             <Grid container spacing={2}>
                                 {movieItems}

@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { Box, Grid, Paper, Typography, styled } from '@mui/material';
+import { Box, Grid, LinearProgress, Paper, Typography, styled } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 
 import { MovieCardRecommended } from '../../components/index.js';
@@ -52,7 +52,7 @@ const Recommended = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <ItemBox elevation={6}>
-                        {loading && '...Loading'}
+                        {loading && <LinearProgress />}
                         {movieItems}
                     </ItemBox>
                 </Grid>

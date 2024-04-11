@@ -57,7 +57,7 @@ const LanguageButton = () => {
                     onClick={handleClickLang}
                     selected={state.locale === LOCALES.ENGLISH}
                 >
-                    ENGLISH
+                    English
                 </MenuItem>
                 <MenuItem
                     id="UKRAINIAN"
