@@ -4,6 +4,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
+import translate from '../../../utils/tranlate';
 
 const LinkFild = ({ link }) => {
     return (
@@ -13,12 +14,15 @@ const LinkFild = ({ link }) => {
         >
             <InputBase sx={{ ml: 1, flex: 1 }} value={link} />
 
-            <CopyToClipboard text={link} onCopy={() => toast.success('Link copied!')}>
+            <CopyToClipboard
+                text={link}
+                onCopy={() => toast.success(translate('toast_link_copied'))}
+            >
                 <IconButton type="button" sx={{ p: '10px' }} aria-label="copy to clipboard">
                     <ContentCopyIcon color="primary" />
                 </IconButton>
             </CopyToClipboard>
-            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
             <IconButton
                 // href="/recommend"
                 href={link}
@@ -28,7 +32,7 @@ const LinkFild = ({ link }) => {
                 aria-label="preview"
             >
                 <VisibilityIcon color="primary" />
-            </IconButton>
+            </IconButton> */}
         </Paper>
     );
 };

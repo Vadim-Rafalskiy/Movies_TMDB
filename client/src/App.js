@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Box, Container, CssBaseline } from '@mui/material';
 import {
     ApolloClient,
@@ -11,13 +11,24 @@ import {
 } from '@apollo/client';
 
 import { Navigation } from './components';
-import { AppContext } from './Context/AppContext';
+import { AppContext } from './providers/appContext';
 import { Home, Settings, Recommended } from './Pages';
+import I18nProvider from './providers/i18n';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { getFromStorage } from './utils/localStorage';
+import { LOCALES_STORAGE_KEY } from './const';
 
 function App() {
-    const { state } = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
+
+    const currentLocale = getFromStorage(LOCALES_STORAGE_KEY);
+
+    useEffect(() => {
+        if (currentLocale) {
+            dispatch({ type: 'setLocale', locale: currentLocale });
+        }
+    }, [dispatch]);
 
     const httpLink = new HttpLink({ uri: 'http://localhost:4000/' });
 
@@ -41,22 +52,27 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <CssBaseline />
-            <BrowserRouter>
+            <I18nProvider locale={state.locale}>
                 <Navigation />
-                <Box
+                {/* <Box
+                    sx={{
+                        backgroundColor: theme => theme.palette.grey[300],
+                    }}
+                > */}
+                <Container
+                    maxWidth="xl"
                     sx={{
                         backgroundColor: theme => theme.palette.grey[300],
                     }}
                 >
-                    <Container maxWidth="xl">
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="settings" element={<Settings />} />
-                            <Route path="recommended" element={<Recommended />} />
-                        </Routes>
-                    </Container>
-                </Box>
-            </BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="settings" element={<Settings />} />
+                        <Route path="recommended" element={<Recommended />} />
+                    </Routes>
+                </Container>
+                {/* </Box> */}
+            </I18nProvider>
         </ApolloProvider>
     );
 }

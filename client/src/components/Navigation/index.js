@@ -20,6 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import LanguageButton from './LanguageButton';
+import translate from '../../utils/tranlate';
 
 const Navigation = () => {
     const [isDrowerOpen, setDrowerOpen] = useState(false);
@@ -67,7 +68,7 @@ const Navigation = () => {
                         }}
                     >
                         <Button component={RouterLink} to="settings" sx={{ my: 2, color: 'white' }}>
-                            Settings
+                            {translate('settings')}
                         </Button>
                     </Box>
                 </Toolbar>

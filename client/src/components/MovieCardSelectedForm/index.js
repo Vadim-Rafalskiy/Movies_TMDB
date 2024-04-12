@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, Divider, IconButton, InputBase, Paper } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import { Form, Field } from 'react-final-form';
+import { FormattedMessage } from 'react-intl';
 
 const validate = value => (value ? undefined : 'Required');
 
@@ -16,12 +17,16 @@ const MovieCardSelectedForm = ({ onSubmit }) => {
                             <Field name="listName" validate={validate}>
                                 {({ input, meta }) => (
                                     <>
-                                        <InputBase
-                                            placeholder="Put the list name"
-                                            inputProps={{ 'aria-label': 'put list name' }}
-                                            sx={{ flex: 1 }}
-                                            {...input}
-                                        />
+                                        <FormattedMessage id="input_selected_section">
+                                            {placeholder => (
+                                                <InputBase
+                                                    placeholder={placeholder}
+                                                    inputProps={{ 'aria-label': 'put list name' }}
+                                                    sx={{ flex: 1 }}
+                                                    {...input}
+                                                />
+                                            )}
+                                        </FormattedMessage>
                                         {meta.error && meta.touched && <span>{meta.error}</span>}
                                     </>
                                 )}

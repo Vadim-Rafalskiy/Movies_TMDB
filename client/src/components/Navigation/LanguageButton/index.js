@@ -2,7 +2,7 @@ import { useState, useContext, useCallback } from 'react';
 import { IconButton, MenuItem, Menu, Typography, Box } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
 
-import { AppContext } from '../../../Context/AppContext';
+import { AppContext } from '../../../providers/appContext/index.js';
 import { LOCALES } from '../../../const.js';
 
 const LanguageButton = () => {
@@ -15,8 +15,6 @@ const LanguageButton = () => {
         },
         [dispatch]
     );
-
-    console.log('state: ', state);
 
     const open = Boolean(anchorEl);
 

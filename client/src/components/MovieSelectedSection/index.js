@@ -2,6 +2,7 @@ import { Paper, CardMedia, styled, Typography, Box } from '@mui/material';
 import noMoviesImage from '../../assets/film.jpg';
 import { MovieCardSelectedForm, ConfirmModal, MovieCardSelected } from '../../components';
 import { useState } from 'react';
+import translate from '../../utils/tranlate';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -65,7 +66,7 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
             <SelectedMovies elevation={6}>
                 <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
                 <Typography variant="h5" mt={2}>
-                    No selected movies
+                    {translate('empty_movies')}
                 </Typography>
             </SelectedMovies>
         );

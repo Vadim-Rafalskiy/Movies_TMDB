@@ -1,18 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import {
-    CardContent,
-    CardMedia,
-    Typography,
-    IconButton,
-    MenuItem,
-    Tooltip,
-    styled,
-    Box,
-} from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { CardContent, CardMedia, Typography, MenuItem, Tooltip, styled } from '@mui/material';
 import PropTypes from 'prop-types';
 import { CardMenu } from '../index.js';
+import translate from '../../utils/tranlate.js';
 
 const MovieCardSelected = ({ movie, onCardDelete }) => {
     const MovieInfo = styled(CardContent)(({ theme }) => ({
@@ -44,7 +35,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
                             onCardDelete(movie);
                         }}
                     >
-                        Delete
+                        {translate('delete')}
                     </MenuItem>
                 </CardMenu>
                 <CardMedia

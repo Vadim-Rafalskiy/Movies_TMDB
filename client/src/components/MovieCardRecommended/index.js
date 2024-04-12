@@ -1,4 +1,5 @@
 import { Box, CardContent, CardMedia, Grid, Paper, Typography, styled } from '@mui/material';
+import translate from '../../utils/tranlate';
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
     '&:last-child': {
@@ -72,7 +73,8 @@ const MovieCardRecommended = ({ movie }) => {
                             </Box>
                         )}
                         <Typography variant="h6" color="text.secondary">
-                            Overview
+                            {translate('overview')}
+                            {/* Overview */}
                         </Typography>
                         <Typography
                             variant="subtitle1"
