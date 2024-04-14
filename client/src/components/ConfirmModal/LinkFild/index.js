@@ -16,7 +16,7 @@ const LinkFild = ({ link }) => {
 
             <CopyToClipboard
                 text={link}
-                onCopy={() => toast.success(translate('toast_link_copied'))}
+                onCopy={() => toast.success(translate('toast.link_copied'))}
             >
                 <IconButton type="button" sx={{ p: '10px' }} aria-label="copy to clipboard">
                     <ContentCopyIcon color="primary" />

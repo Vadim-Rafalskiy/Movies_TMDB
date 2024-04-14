@@ -7,8 +7,8 @@ export const getFromStorage = localStorageKey => {
         return null;
     }
     try {
-        const loc = window.localStorage.getItem(localStorageKey);
-        return JSON.parse(loc);
+        const locale = window.localStorage.getItem(localStorageKey);
+        return JSON.parse(locale);
     } catch (error) {
         console.error(error);
         return null;

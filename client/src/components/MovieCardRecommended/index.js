@@ -1,4 +1,18 @@
-import { Box, CardContent, CardMedia, Grid, Paper, Typography, styled } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Box,
+    CardContent,
+    CardMedia,
+    Grid,
+    List,
+    ListItem,
+    Paper,
+    Typography,
+    styled,
+} from '@mui/material';
 import translate from '../../utils/tranlate';
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
@@ -7,10 +21,9 @@ const CardInfo = styled(CardContent)(({ theme }) => ({
     },
 }));
 
-const GanresPlate = styled(Box)(({ theme }) => ({
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    borderColor: theme.palette.primary.dark,
+const GanresPlate = styled(ListItem)(({ theme }) => ({
+    width: 'auto',
+    border: `1px solid ${theme.palette.primary.dark}`,
     borderRadius: '5px',
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.primary.contrastText,
@@ -31,8 +44,13 @@ const MovieCardRecommended = ({ movie }) => {
     }));
 
     return (
-        <ItemBox sx={{}}>
-            <Grid container spacing={1} m={0}>
+        <ItemBox sx={{ width: '100%', padding: '10px' }}>
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <Typography fontWeight={600} variant="h5" color="text.secondary">
+                        {title}
+                    </Typography>
+                </Grid>
                 <Grid item xs={12} lg={4}>
                     <CardMedia
                         sx={{ borderRadius: '5px' }}
@@ -44,46 +62,71 @@ const MovieCardRecommended = ({ movie }) => {
                 </Grid>
                 <Grid item xs={12} lg={8} sx={{ padding: '0px' }}>
                     <CardInfo>
-                        <Typography variant="h6" color="text.secondary">
-                            {title}
-                        </Typography>
+                        <Box display={'flex'} gap={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {translate('recomended_card.release_date')}
+                            </Typography>
+                            <Typography fontWeight={600} variant="subtitle1" color="text.secondary">
+                                {releaseDate}
+                            </Typography>
+                        </Box>
+                        <Box display={'flex'} gap={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {translate('recomended_card.runtime')}
+                            </Typography>
+                            <Typography fontWeight={600} variant="subtitle1" color="text.secondary">
+                                {runtime}
+                            </Typography>
+                        </Box>
+                        <Box display={'flex'} gap={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {translate('recomended_card.popularity')}
+                            </Typography>
+                            <Typography fontWeight={600} variant="subtitle1" color="text.secondary">
+                                {popularity}
+                            </Typography>
+                        </Box>
+                        <Box display={'flex'} gap={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {translate('recomended_card.vote_count')}
+                            </Typography>
+                            <Typography fontWeight={600} variant="subtitle1" color="text.secondary">
+                                {voteCount}
+                            </Typography>
+                        </Box>
 
-                        <Typography variant="subtitle1" color="text.secondary">
-                            ReleaseDate: {releaseDate}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            Runtime: {runtime}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            Popularity: {popularity}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            VoteCount: {voteCount}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            VoteAverage: {voteAverage}
-                        </Typography>
+                        <Box display={'flex'} gap={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary">
+                                {translate('recomended_card.vote_average')}
+                            </Typography>
+                            <Typography fontWeight={600} variant="subtitle1" color="text.secondary">
+                                {voteAverage}
+                            </Typography>
+                        </Box>
                     </CardInfo>
                 </Grid>
                 <Grid item xs={12}>
-                    <Box sx={{ padding: '5px', margin: '0px' }}>
-                        {genres && (
-                            <Box padding={1} sx={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-                                {genresList}
-                            </Box>
-                        )}
-                        <Typography variant="h6" color="text.secondary">
-                            {translate('overview')}
-                            {/* Overview */}
-                        </Typography>
-                        <Typography
-                            variant="subtitle1"
-                            color="text.secondary"
-                            sx={{ paddingRight: '5px' }}
+                    <Accordion sx={{ border: '1px solid #e1dddd' }}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel2-content"
+                            id="panel2-header"
                         >
-                            {overview}
-                        </Typography>
-                    </Box>
+                            {translate('overview')}
+                        </AccordionSummary>
+                        <AccordionDetails>{overview}</AccordionDetails>
+                    </Accordion>
+                    {genres && (
+                        <List
+                            sx={{
+                                display: 'flex',
+                                gap: '5px',
+                                flexWrap: 'wrap',
+                            }}
+                        >
+                            {genresList}
+                        </List>
+                    )}
                 </Grid>
             </Grid>
         </ItemBox>

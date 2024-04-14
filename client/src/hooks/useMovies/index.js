@@ -14,13 +14,13 @@ export const useMovies = () => {
 
             if (isSelected && length < MAX_SELECTED_MOVIES) {
                 setSelektedMovies([movie, ...selectedMovies]);
-                toast.info(translate('toast_info_add_to_list', { title: movie.title }));
+                toast.info(translate('toast.info_add_to_list', { title: movie.title }));
             }
             if (length === MAX_SELECTED_MOVIES) {
-                toast.error(translate('toast_err_max_movies'));
+                toast.error(translate('toast.err_max_movies'));
             }
             if (!isSelected) {
-                toast.error(translate('toast_err_already_listed'));
+                toast.error(translate('toast.err_already_listed'));
             }
         },
         [selectedMovies]

@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from 'react';
-import defaultContext from './defaultContext';
 import { saveToStorage } from '../../utils/localStorage';
 import { LOCALES_STORAGE_KEY } from '../../const';
+import { useDefaultContext } from './defaultContext';
 
 const AppContext = createContext();
 
@@ -17,6 +17,8 @@ let reducer = (state, action) => {
 };
 
 const AppContextProvider = ({ children }) => {
+    const defaultContext = useDefaultContext();
+
     const [state, dispatch] = useReducer(reducer, defaultContext);
 
     const value = { state, dispatch };

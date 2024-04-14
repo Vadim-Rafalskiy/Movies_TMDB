@@ -68,7 +68,7 @@ const Navigation = () => {
                         }}
                     >
                         <Button component={RouterLink} to="settings" sx={{ my: 2, color: 'white' }}>
-                            {translate('settings')}
+                            {translate('navigation.settings')}
                         </Button>
                     </Box>
                 </Toolbar>

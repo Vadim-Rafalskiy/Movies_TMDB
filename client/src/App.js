@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Box, Container, CssBaseline } from '@mui/material';
+import { Container, CssBaseline } from '@mui/material';
 import {
     ApolloClient,
     InMemoryCache,
@@ -54,11 +54,6 @@ function App() {
             <CssBaseline />
             <I18nProvider locale={state.locale}>
                 <Navigation />
-                {/* <Box
-                    sx={{
-                        backgroundColor: theme => theme.palette.grey[300],
-                    }}
-                > */}
                 <Container
                     maxWidth="xl"
                     sx={{
@@ -71,7 +66,6 @@ function App() {
                         <Route path="recommended" element={<Recommended />} />
                     </Routes>
                 </Container>
-                {/* </Box> */}
             </I18nProvider>
         </ApolloProvider>
     );

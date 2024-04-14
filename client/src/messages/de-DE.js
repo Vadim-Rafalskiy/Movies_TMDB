@@ -2,14 +2,26 @@ import { LOCALES } from '../const';
 
 export default {
     [LOCALES.GERMAN]: {
-        settings: 'Einstellungen',
+        navigation: {
+            settings: 'Einstellungen',
+        },
+        toast: {
+            link_copied: 'Link kopiert!',
+            err_max_movies: 'Die Liste kann nur 20 Filme enthalten',
+            err_already_listed: 'Dieser Film ist bereits gelistet',
+            info_add_to_list: '"{title}" wurde zur Liste hinzugefügt',
+        },
+        recomended_card: {
+            release_date: 'Veröffentlichungsdatum:',
+            runtime: 'Dauer:',
+            popularity: 'Popularität:',
+            vote_count: 'Anzahl der Stimmen:',
+            vote_average: 'Durchschnittliche:',
+        },
+
         empty_movies: 'Keine ausgewählten Filme',
         input_selected_section: 'Geben Sie den Listennamen ein',
         delete: 'Löschen',
-        toast_link_copied: 'Link kopiert!',
-        toast_err_max_movies: 'Die Liste kann nur 20 Filme enthalten',
-        toast_err_already_listed: 'Dieser Film ist bereits gelistet',
-        toast_info_add_to_list: '"{title}" wurde zur Liste hinzugefügt',
         overview: 'Überblick',
     },
 };
