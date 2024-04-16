@@ -3,9 +3,11 @@ import de from './de-DE';
 import uk from './uk-UA';
 import pl from './pl-PL';
 
-export default {
+const messages = {
     ...en,
     ...de,
     ...uk,
     ...pl,
 };
+
+export default messages;

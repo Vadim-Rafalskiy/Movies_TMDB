@@ -1,6 +1,6 @@
 import { LOCALES } from '../const';
 
-export default {
+const pl = {
     [LOCALES.POLISH]: {
         navigation: {
             settings: 'Ustawienia',
@@ -25,3 +25,5 @@ export default {
         overview: 'Przegląd',
     },
 };
+
+export default pl;

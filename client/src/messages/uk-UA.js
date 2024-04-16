@@ -1,6 +1,6 @@
 import { LOCALES } from '../const';
 
-export default {
+const uk = {
     [LOCALES.UKRAINIAN]: {
         navigation: {
             settings: 'Налаштування',
@@ -25,3 +25,5 @@ export default {
         overview: 'Огляд',
     },
 };
+
+export default uk;
