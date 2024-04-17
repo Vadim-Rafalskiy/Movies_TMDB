@@ -80,6 +80,12 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../../client", "build", "index.html"));
 });
 
-await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+await new Promise((resolve) =>
+  httpServer.listen({ port: process.env.PORT || 80 }, resolve)
+);
 
-console.log(`🚀 Server ready at port:4000/`);
+console.log(
+  `🚀 Server ready at http://localhost:${process.env.PORT || 80}${
+    server.graphqlPath
+  }`
+);
