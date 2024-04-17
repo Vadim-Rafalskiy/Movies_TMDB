@@ -82,5 +82,4 @@ app.get("*", (req, res) => {
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 
-console.log(`🚀 Server ready at ${host}:4000/`);
-// console.log(`🚀 Server ready at http://localhost:4000/`);
+console.log(`🚀 Server ready at port:4000/`);
