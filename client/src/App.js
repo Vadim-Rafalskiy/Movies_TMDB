@@ -28,7 +28,7 @@ function App() {
         if (currentLocale) {
             dispatch({ type: 'setLocale', locale: currentLocale });
         }
-    }, [dispatch]);
+    }, [dispatch, currentLocale]);
 
     const httpLink = new HttpLink({ uri: `${window.location.host}:4000/graphql` });
     // const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' });
