@@ -9,6 +9,7 @@ import MovieSelectedSection from './MovieSelectedSection';
 import ConfirmModal from './ConfirmModal';
 import SocialShare from './SocialChare';
 import MovieCardRecommended from './MovieCardRecommended';
+import ErrorBoundary from './ErrorBoundary';
 import Filter from './Filter';
 
 export {
@@ -23,5 +24,6 @@ export {
     ConfirmModal,
     SocialShare,
     MovieCardRecommended,
+    ErrorBoundary,
     Filter,
 };
