@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
-import translate from '../../utils/tranlate';
+import translate from '../../utils/translate';
 import { MAX_SELECTED_MOVIES } from '../../const';
 
 export const useMovies = () => {

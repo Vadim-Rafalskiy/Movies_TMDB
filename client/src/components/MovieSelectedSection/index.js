@@ -2,7 +2,7 @@ import { Paper, CardMedia, styled, Typography, Box } from '@mui/material';
 import noMoviesImage from '../../assets/film.jpg';
 import { MovieCardSelectedForm, ConfirmModal, MovieCardSelected } from '../../components';
 import { useState } from 'react';
-import translate from '../../utils/tranlate';
+import translate from '../../utils/translate';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',

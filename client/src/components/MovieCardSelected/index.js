@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import { CardContent, CardMedia, Typography, MenuItem, Tooltip, styled } from '@mui/material';
 import PropTypes from 'prop-types';
 import { CardMenu } from '../index.js';
-import translate from '../../utils/tranlate.js';
+import translate from '../../utils/translate.js';
 
 const MovieCardSelected = ({ movie, onCardDelete }) => {
     const MovieInfo = styled(CardContent)(({ theme }) => ({

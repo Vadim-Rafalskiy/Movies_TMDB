@@ -13,7 +13,7 @@ import {
     Typography,
     styled,
 } from '@mui/material';
-import translate from '../../utils/tranlate';
+import translate from '../../utils/translate';
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
     '&:last-child': {

@@ -4,7 +4,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
-import translate from '../../../utils/tranlate';
+import translate from '../../../utils/translate';
 
 const LinkFild = ({ link }) => {
     return (
