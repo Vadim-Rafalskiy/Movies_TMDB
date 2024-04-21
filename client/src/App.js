@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import { Container, CssBaseline } from '@mui/material';
 import {
     ApolloClient,
@@ -30,8 +30,8 @@ function App() {
         }
     }, [dispatch, currentLocale]);
 
-    const httpLink = new HttpLink({ uri: `${window.location.origin}/graphql` });
-    // const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' });
+    // const httpLink = new HttpLink({ uri: `${window.location.origin}/graphql` });
+    const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' });
 
     const localeMidlware = new ApolloLink((operation, forward) => {
         operation.setContext(({ headers = {} }) => ({
@@ -61,15 +61,33 @@ function App() {
                         backgroundColor: theme => theme.palette.grey[300],
                     }}
                 >
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="settings" element={<Settings />} />
-                        <Route path="recommended" element={<Recommended />} />
-                    </Routes>
+                    <main>
+                        <Outlet />
+                    </main>
                 </Container>
             </I18nProvider>
         </ApolloProvider>
     );
+    // return (
+    //     <ApolloProvider client={client}>
+    //         <CssBaseline />
+    //         <I18nProvider locale={state.locale}>
+    //             <Navigation />
+    //             <Container
+    //                 maxWidth="xl"
+    //                 sx={{
+    //                     backgroundColor: theme => theme.palette.grey[300],
+    //                 }}
+    //             >
+    //                 <Routes>
+    //                     <Route path="/" element={<Home />} />
+    //                     <Route path="settings" element={<Settings />} />
+    //                     <Route path="recommended" element={<Recommended />} />
+    //                 </Routes>
+    //             </Container>
+    //         </I18nProvider>
+    //     </ApolloProvider>
+    // );
 }
 
 export default App;

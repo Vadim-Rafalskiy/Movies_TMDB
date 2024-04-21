@@ -1,4 +1,3 @@
-// const { format } = require('date-fns');
 import { format } from "date-fns";
 import config from "../../../config/index.js";
 
