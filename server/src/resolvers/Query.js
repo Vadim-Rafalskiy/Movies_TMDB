@@ -3,6 +3,13 @@ import { Movie } from "../modules/movies/entities/Movie.js";
 
 export async function movies(parent, args, { locale }) {
   const data = await axiosQuery.getPopular(args.page, locale);
+
+  return data;
+}
+
+export async function genres(parent, args, { locale }) {
+  const data = await axiosQuery.getGenres(locale);
+
   return data;
 }
 

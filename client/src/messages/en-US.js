@@ -18,6 +18,12 @@ const en = {
             vote_count: 'Vote count:',
             vote_average: 'Vote average:',
         },
+        filter: {
+            input_key_word: 'Keywords',
+            input_release_year: 'Release year',
+            input_runtime_gte: 'Runtime >=',
+            input_runtime_lte: 'Runtime <=',
+        },
         empty_movies: 'No selected movies',
         input_selected_section: 'Put the list name',
         delete: 'Delete',

@@ -9,6 +9,7 @@ import MovieSelectedSection from './MovieSelectedSection';
 import ConfirmModal from './ConfirmModal';
 import SocialShare from './SocialChare';
 import MovieCardRecommended from './MovieCardRecommended';
+import Filter from './Filter';
 
 export {
     Navigation,
@@ -22,4 +23,5 @@ export {
     ConfirmModal,
     SocialShare,
     MovieCardRecommended,
+    Filter,
 };

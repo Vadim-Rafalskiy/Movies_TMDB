@@ -1,6 +1,6 @@
 type Query {
   movies(page: Int): Movies
-  # moviesById(movieid: Int): Movie
+  genres: Genres
   moviesByIds(ids: [Int]): [Movie]
 }
 
@@ -18,7 +18,7 @@ type Movie {
   runtime: Int
   releaseDate(format: String): String!
   posterPath: String
-  genres: [Genres]
+  genres: [Genre!]!
   adult: Boolean
   overview: String
   originalLanguage: String
@@ -29,7 +29,11 @@ type Movie {
   voteAverage: Float
 }
 
-type Genres {
+type Genre {
   id: Int!
   name: String
+}
+
+type Genres {
+  results: [Genre!]!
 }
