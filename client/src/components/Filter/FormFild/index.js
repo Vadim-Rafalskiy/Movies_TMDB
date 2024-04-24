@@ -2,18 +2,23 @@ import { TextField } from '@mui/material';
 import { Field } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 
-const FormField = ({ name, id, sx }) => {
+const FormField = ({ name, id, ...props }) => {
     return (
-        <Field name={name}>
-            {({ input, meta }) => (
+        <Field
+            name={name}
+            render={({ input, meta }) => (
                 <>
-                    <FormattedMessage id={id}>
-                        {label => <TextField size="small" label={label} sx={sx} {...input} />}
-                    </FormattedMessage>
+                    <TextField
+                        id="outlined-basic"
+                        label={<FormattedMessage id={id}></FormattedMessage>}
+                        {...props}
+                        {...input}
+                        size="small"
+                    />
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                 </>
             )}
-        </Field>
+        />
     );
 };
 

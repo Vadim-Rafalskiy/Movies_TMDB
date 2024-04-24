@@ -12,10 +12,6 @@ function Copyright() {
 }
 
 const Home = () => {
-    // const auth = useContext(AuthContext);
-    // const loggedIn = auth.user !== anonymousUser;
-    // const greeting = 'Explore movies today with us!';
-
     return (
         <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 8 }}>
             <Container maxWidth="sm">

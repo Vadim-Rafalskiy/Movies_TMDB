@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const MOVIES_QUERY = gql`
-    query Movies($page: Int) {
-        movies(page: $page) {
+    query Movies($page: Int,$filter:) {
+        movies(page: $page, filter: $filter) {
             page
             totalPages
             totalResults

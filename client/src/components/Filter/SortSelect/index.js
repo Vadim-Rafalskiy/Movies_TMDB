@@ -1,51 +1,41 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { SORT_OPTIONS } from '../../../const.js';
+import { FormattedMessage } from 'react-intl';
+import React from 'react';
+import { Field } from 'react-final-form';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-const SortSelect = () => {
-    const [sortMetod, setSortMetod] = React.useState('');
-
-    const handleChange = event => {
-        setSortMetod(event.target.value);
-    };
-
+function SortSelect() {
     return (
-        <Box sx={{ minWidth: 220 }}>
-            <FormControl fullWidth sx={{ color: 'text.secondary' }}>
-                <InputLabel size="small" id="demo-simple-select-label">
-                    Sort by:
-                </InputLabel>
-                <Select
-                    size="small"
-                    labelId="demo-simple-select-label"
-                    id="sort_by"
-                    value={sortMetod}
-                    label="Sort by"
-                    onChange={handleChange}
-                    sx={{ color: 'text.secondary' }}
-                >
-                    <MenuItem sx={{ color: 'text.secondary' }} selected={true} value={''}>
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem sx={{ color: 'text.secondary' }} value={'popularity.asc'}>
-                        popularity.asc
-                    </MenuItem>
-                    <MenuItem sx={{ color: 'text.secondary' }} value={'popularity.desc'}>
-                        popularity.desc
-                    </MenuItem>
-                    <MenuItem sx={{ color: 'text.secondary' }} value={'vote_average.asc'}>
-                        vote_average.asc
-                    </MenuItem>
-                    <MenuItem sx={{ color: 'text.secondary' }} value={'vote_average.desc'}>
-                        vote_average.desc
-                    </MenuItem>
-                </Select>
-            </FormControl>
-        </Box>
+        <Field
+            name="sort_by"
+            render={({ input }) => (
+                <FormattedMessage id="filter.sort_by">
+                    {placeholder => (
+                        <FormControl sx={{ minWidth: 140, mr: '10px' }}>
+                            <InputLabel id="demo-simple-select-label">{placeholder}</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                autoWidth
+                                size="small"
+                                value={'sort_by'}
+                                label="sort_by"
+                                {...input}
+                            >
+                                {SORT_OPTIONS.map(({ label, value }) => (
+                                    <MenuItem key={value} value={value}>
+                                        <FormattedMessage
+                                            id={`filter.sort.${label}`}
+                                        ></FormattedMessage>
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    )}
+                </FormattedMessage>
+            )}
+        />
     );
-};
+}
 
 export default SortSelect;

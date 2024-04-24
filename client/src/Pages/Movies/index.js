@@ -10,7 +10,8 @@ import { MOVIES_QUERY } from './querys.js';
 
 const Movies = () => {
     const [page, setPage] = useState(1);
-    const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page } });
+    const [filter, setFilter] = useState(1);
+    const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page, filter } });
     const { onCardDelete, onCardSelect, selectedMovies } = useMovies();
 
     if (error) return `Error! ${error}`;
@@ -37,12 +38,20 @@ const Movies = () => {
         </Grid>
     ));
 
+    const handleFilterSubmit = data => {
+        setFilter(data);
+
+        console.log('data: ', data);
+    };
+
     return (
         <Box sx={{ flexGrow: 1, marginTop: 2 }}>
             <Grid container spacing={2} sx={{ position: 'relative' }}>
                 <Grid item xs={12}>
                     <Paper elevation={6} sx={{ padding: '10px' }}>
-                        <Filter onSubmit={() => {}} />
+                        {/* ---------------------FILTERS-------------------- */}
+                        <Filter onSubmit={handleFilterSubmit} />
+                        {/* ---------------------FILTERS-------------------- */}
                     </Paper>
                 </Grid>
                 <Grid item xs={12} md={9}>
