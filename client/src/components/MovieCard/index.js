@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Card, CardMedia, CardContent, Typography, Tooltip, styled, Paper } from '@mui/material';
 import { CardBackdrop } from '../';
 
+import noImage from "../../assets/cinema_500px-750px.jpg"
+
 const MovieCard = ({ movie, onCardSelect }) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -25,7 +27,7 @@ const MovieCard = ({ movie, onCardSelect }) => {
                     <CardMedia
                         component="img"
                         height="350"
-                        image={movie.posterPath}
+                        image={movie.posterPath?movie.posterPath:noImage}
                         alt={movie.title}
                     />
                 </CardBackdrop>
@@ -58,7 +60,7 @@ MovieCard.propTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string.isRequired,
         releaseDate: PropTypes.string.isRequired,
-        posterPath: PropTypes.string.isRequired,
+        posterPath: PropTypes.string,
     }).isRequired,
     onCardSelect: PropTypes.func.isRequired,
 };
