@@ -16,19 +16,19 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
         },
     }));
 
-    const MoovieCard = styled(Card)(({ theme }) => ({
+    const MovieCard = styled(Card)(({ theme }) => ({
         border: '1px solid #ccc',
         boxShadow: theme.shadows[5],
         position: 'relative',
         display: 'flex',
-        '&:not(:last-child)': {
-            marginBottom: theme.spacing(1),
-        },
+        // '&:not(:last-child)': {
+        //     marginBottom: theme.spacing(1),
+        // },
     }));
 
     return (
         <Tooltip title={movie.title}>
-            <MoovieCard>
+            <MovieCard sx={{maxWidth:"320px", minWidth:"250px"}}>
                 <CardMenu>
                     <MenuItem
                         onClick={() => {
@@ -40,7 +40,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
                 </CardMenu>
                 <CardMedia
                     component="img"
-                    sx={{ width: '100px' /*, height: '120px'*/ }}
+                    sx={{ width: '100px'}}
                     image={movie.posterPath}
                     alt={movie.title}
                 />
@@ -60,7 +60,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
                         {movie.releaseDate}
                     </Typography>
                 </MovieInfo>
-            </MoovieCard>
+            </MovieCard>
         </Tooltip>
     );
 };

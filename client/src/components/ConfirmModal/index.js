@@ -33,7 +33,7 @@ const ConfirmModal = ({ title, link, onOpen, handleModalClose }) => {
                         variant="h6"
                         mb={2}
                         component="h2"
-                        sx={{ textAlign: 'center' }}
+                        align='center'
                     >
                         {title}
                     </Typography>

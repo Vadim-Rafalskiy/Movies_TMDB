@@ -10,15 +10,17 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 import { SORT_DIRECTION } from '../../../const';
 
+
+
 export const SortDirectionField = () => {
     return (
-        <Field
+        <Field type="radio"
             name="sortDirection"
             render={({ input }) => (
                 <FormattedMessage id="filter.sort.sort_direction">
                     {placeholder => (
                         <FormControl
-                            required
+                            
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'row',
@@ -27,17 +29,16 @@ export const SortDirectionField = () => {
                             }}
                         >
                             <FormLabel id="sort_direction">{placeholder}</FormLabel>
-                            <RadioGroup row name="sort_direction" {...input}>
+                            <RadioGroup  row name="sort_direction" {...input}>
                                 <FormControlLabel
                                     sx={{
                                         display: 'flex',
                                         alignItems: 'baseline',
                                     }}
                                     value={SORT_DIRECTION.ASC}
-                                    control={<Radio sx={{ paddingRight: '0px' }} />}
+                                    control={<Radio  sx={{ paddingRight: '0px' }} />}
                                     label={
                                         <ArrowUpwardIcon />
-                                        // <FormattedMessage id="filter.sort_direction_options.asc"></FormattedMessage>
                                     }
                                 />
                                 <FormControlLabel
@@ -45,7 +46,6 @@ export const SortDirectionField = () => {
                                     value={SORT_DIRECTION.DESC}
                                     control={<Radio sx={{ paddingRight: '0px' }} />}
                                     label={
-                                        // <FormattedMessage id="filter.sort_direction_options.desc"></FormattedMessage>
                                         <ArrowDownwardIcon />
                                     }
                                 />

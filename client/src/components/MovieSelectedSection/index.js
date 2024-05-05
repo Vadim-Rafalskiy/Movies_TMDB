@@ -17,7 +17,6 @@ const SelectedMovies = styled(Paper)(({ theme }) => ({
 
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
 }));
 
 const MovieList = styled(Box)(({ theme }) => ({
@@ -64,8 +63,8 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
     if (!selectedMovies.length) {
         return (
             <SelectedMovies elevation={6}>
-                <CardMedia sx={{ maxWidth: '200px' }} component="img" src={noMoviesImage} />
-                <Typography variant="h5" mt={2}>
+                <CardMedia sx={{ maxWidth: '250px', margin:"0 auto" }}  component="img" src={noMoviesImage} />
+                <Typography variant="h5" mt={2} alignSelf="center">
                     {translate('empty_movies')}
                 </Typography>
             </SelectedMovies>
@@ -76,7 +75,16 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
         <>
             <SelectedMovies elevation={6}>
                 <MovieList>
-                    <Box sx={{ marginRight: '5px' }}>{movieSelectedItems}</Box>
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            width: '100%',
+                            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+                            gridGap: '5px',
+                        }}
+                    >
+                        {movieSelectedItems}
+                    </Box>
                 </MovieList>
                 <MovieCardSelectedForm onSubmit={onSubmit} />
             </SelectedMovies>

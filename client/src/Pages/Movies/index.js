@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { Grid, Box, Paper, LinearProgress } from '@mui/material';
@@ -6,13 +5,18 @@ import { ToastContainer } from 'react-toastify';
 
 import { Filter, MovieCard, MovieSelectedSection, PagePagination } from '../../components';
 import { useMovies } from '../../hooks/useMovies';
-import { MOVIES_QUERY } from './querys.js';
+import { FILTERED_MOVIES_QUERY } from './querys.js';
+import { useFilters } from '../../hooks/useFilters/index.js';
 
 const Movies = () => {
-    const [page, setPage] = useState(1);
-    const [filter, setFilter] = useState(1);
-    const { loading, error, data } = useQuery(MOVIES_QUERY, { variables: { page, filter } });
+    const { setPage, filters, setFilter }=useFilters()
     const { onCardDelete, onCardSelect, selectedMovies } = useMovies();
+
+    const { loading, error, data } = useQuery(FILTERED_MOVIES_QUERY, {
+        variables: { filters },
+    });
+
+    
 
     if (error) return `Error! ${error}`;
 
@@ -20,9 +24,9 @@ const Movies = () => {
         setPage(page);
     };
 
-    const movies = data ? data.movies.results : [];
+    const movies = data ? data.filteredMovies?.results : [];
 
-    const pageCount = data?.movies?.totalPages > 500 ? 500 : data?.movies?.totalPages;
+    const pageCount = data?.filteredMovies?.totalPages > 500 ? 500 : data?.filteredMovies?.totalPages;
 
     const movieItems = movies.map(movie => (
         <Grid
@@ -40,8 +44,6 @@ const Movies = () => {
 
     const handleFilterSubmit = data => {
         setFilter(data);
-
-        console.log('data: ', data);
     };
 
     return (
@@ -50,11 +52,11 @@ const Movies = () => {
                 <Grid item xs={12}>
                     <Paper elevation={6} sx={{ padding: '10px' }}>
                         {/* ---------------------FILTERS-------------------- */}
-                        <Filter onSubmit={handleFilterSubmit} />
+                        <Filter onSubmit={handleFilterSubmit}  />
                         {/* ---------------------FILTERS-------------------- */}
                     </Paper>
                 </Grid>
-                <Grid item xs={12} md={9}>
+                <Grid item xs={12} lg={9}>
                     <Box sx={{ flexGrow: 1, padding: 1 }}>
                         {loading && <LinearProgress />}
                         {data && (
@@ -65,13 +67,13 @@ const Movies = () => {
 
                         <PagePagination
                             paginationHandler={paginationHandler}
-                            page={page}
+                            page={filters.page}
                             pageCount={pageCount}
                         />
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={3} sx={{ position: 'sticky' }}>
-                    <MovieSelectedSection
+                <Grid item  xs={12} lg={3} sx={{ position: 'sticky' }}>
+                    <MovieSelectedSection 
                         onCardDelete={onCardDelete}
                         selectedMovies={selectedMovies}
                         sx={{ maxWidth: '320px' }}
