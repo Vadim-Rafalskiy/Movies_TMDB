@@ -1,12 +1,24 @@
 import { format } from "date-fns";
 import config from "../../../config/index.js";
+import { fileURLToPath } from "url";
+
+import path from "path";
+
+// Отримання шляху до поточного файлу
+const __filename = fileURLToPath(import.meta.url);
+// Отримання шляху до каталогу поточного файлу
+export const __dirname = path.dirname(__filename);
 
 export class Movie {
   constructor(movie) {
     this.movie = movie;
     this.id = movie.id;
     this.title = movie.title;
-    this.posterPath = `${config.IMAGE_BASE_PATH}${movie.poster_path}`;
+    if (!movie.poster_path) {
+      this.posterPath = undefined;
+    } else {
+      this.posterPath = `${config.IMAGE_BASE_PATH}${movie.poster_path}`;
+    }
     this.adult = movie.adult;
     this.overview = movie.overview;
     this.originalLanguage = movie.original_language;
@@ -28,7 +40,7 @@ export class Movie {
       return date;
     } catch (e) {
       console.error(e);
-      return this.movie.release_date;
+      return this.movie.release_date?this.movie.release_date:'unknown date';
     }
   }
 }

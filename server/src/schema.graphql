@@ -1,7 +1,36 @@
 type Query {
-  movies(page: Int): Movies
+  keywords(keyWordInput: String, page: Int): KeyWords
+  filteredMovies(filters: MoviesFilterInput): Movies
   genres: Genres
   moviesByIds(ids: [Int]): [Movie]
+}
+
+input MoviesFilterInput {
+  page: Int!
+  primary_release_year: Int
+  sortDirection: SORT_DIRECTION
+  sort_by: String
+  with_genres: String
+  with_keywords: String
+  with_runtime_gte: Int
+  with_runtime_lte: Int
+}
+
+enum SORT_DIRECTION {
+  desc
+  asc
+}
+
+type KeyWords {
+  page: Int!
+  totalResults: Int!
+  totalPages: Int!
+  results: [KeyWord!]!
+}
+
+type KeyWord{
+  id: ID!
+  name: String!
 }
 
 type Movies {
@@ -30,7 +59,7 @@ type Movie {
 }
 
 type Genre {
-  id: Int!
+  id: ID!
   name: String
 }
 

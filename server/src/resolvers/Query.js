@@ -1,8 +1,14 @@
 import { axiosQuery } from "../modules/movies/index.js";
 import { Movie } from "../modules/movies/entities/Movie.js";
 
-export async function movies(parent, args, { locale }) {
-  const data = await axiosQuery.getPopular(args.page, locale);
+export async function keywords(parent, args) {
+  const data = await axiosQuery.getKeyWords(args.keyWordInput, args.page);
+
+  return data;
+}
+export async function filteredMovies(parent, args, { locale }) {
+  const data = await axiosQuery.getFilteredMovies(args.filters, locale);
+  // const data = await axiosQuery.getFilteredMovies(args.page, args.filters, locale);
 
   return data;
 }
@@ -21,3 +27,5 @@ export async function moviesByIds(parent, { ids }, { locale }) {
 
   return movies;
 }
+
+
