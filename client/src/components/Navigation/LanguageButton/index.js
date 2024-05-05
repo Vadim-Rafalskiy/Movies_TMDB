@@ -71,13 +71,13 @@ const LanguageButton = () => {
                 >
                     Polski
                 </MenuItem>
-                <MenuItem
+                {/* <MenuItem
                     id="GERMAN"
                     onClick={handleClickLang}
                     selected={state.locale === LOCALES.GERMAN}
                 >
                     Deutsch
-                </MenuItem>
+                </MenuItem> */}
             </Menu>
         </Box>
     );
