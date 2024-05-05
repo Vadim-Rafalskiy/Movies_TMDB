@@ -2,8 +2,15 @@ import { LOCALES } from '../const';
 
 const en = {
     [LOCALES.ENGLISH]: {
+        home:{
+            welcome:"Welcome",
+            text:"Explore movies today with us!",
+            button:"Explore",
+        },
         navigation: {
-            settings: 'Settings',
+            home:"Home",
+            movies:"Movies",
+            about:"About",
         },
         toast: {
             link_copied: 'Link copied!',
@@ -19,8 +26,12 @@ const en = {
             vote_average: 'Vote average:',
         },
         filter: {
+            keyWords_label:"Keywords",
+            filters_name:'Filters',
+            button_search:'Search',
+            genres_name:'Genres:',
+            button_reset:'Reset',
             sort_by: 'Sort by:',
-            input_key_word: 'Keywords',
             input_release_year: 'Release year',
             input_runtime_gte: 'Runtime >=',
             input_runtime_lte: 'Runtime <=',
@@ -33,10 +44,6 @@ const en = {
                 original_title: 'Original title',
                 vote_average: 'Vote average',
                 vote_count: 'Vote count',
-            },
-            sort_direction_options: {
-                asc: 'ASC',
-                desc: 'DESC',
             },
         },
         empty_movies: 'No selected movies',

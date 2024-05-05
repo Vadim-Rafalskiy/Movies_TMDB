@@ -1,7 +1,6 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
-import { useContext } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Link as RouterLink } from 'react-router-dom';
-// import { AuthContext, anonymousUser } from '../../AuthContext';
 
 function Copyright() {
     return (
@@ -22,10 +21,10 @@ const Home = () => {
                     color="text.primary"
                     gutterBottom
                 >
-                    Welcome
+                    <FormattedMessage id="home.welcome"></FormattedMessage>
                 </Typography>
                 <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                    Explore movies today with us!
+                    <FormattedMessage id="home.text"></FormattedMessage>
                 </Typography>
                 <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
                     <Button
@@ -34,7 +33,7 @@ const Home = () => {
                         variant="contained"
                         color="secondary"
                     >
-                        Explore
+                        <FormattedMessage id="home.button"></FormattedMessage>
                     </Button>
                 </Stack>
             </Container>
