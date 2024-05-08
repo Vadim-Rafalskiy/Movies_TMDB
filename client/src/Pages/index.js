@@ -1,5 +1,5 @@
 import Home from './Home';
-import Settings from './Settings';
 import Recommended from './Recommended';
+import Movies from './Movies';
 
-export { Home, Recommended, Settings };
+export { Home, Recommended, Movies };

@@ -51,9 +51,9 @@ const Movies = () => {
             <Grid container spacing={2} sx={{ position: 'relative' }}>
                 <Grid item xs={12}>
                     <Paper elevation={6} sx={{ padding: '10px' }}>
-                        {/* ---------------------FILTERS-------------------- */}
+                        {/* ---------------------FILTERS----------------------------------------------------- */}
                         <Filter onSubmit={handleFilterSubmit}  />
-                        {/* ---------------------FILTERS-------------------- */}
+                        {/* ---------------------FILTERS----------------------------------------------------- */}
                     </Paper>
                 </Grid>
                 <Grid item xs={12} lg={9}>
