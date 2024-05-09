@@ -5,7 +5,7 @@ const pl = {
         home:{
             welcome:"Witamy",
             text:"Przeglądaj filmy już dziś razem z nami!",
-            button:"Badać",
+            button:"Zacząć",
         },
         navigation: {
             home:"Strona główna",

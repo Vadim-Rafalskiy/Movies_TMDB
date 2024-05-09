@@ -12,7 +12,7 @@ function Copyright() {
 
 const Home = () => {
     return (
-        <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 8 }}>
+        <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 8 , minHeight:"calc(100vh - 79px)", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
             <Container maxWidth="sm">
                 <Typography
                     component="h1"
@@ -43,7 +43,7 @@ const Home = () => {
                 sx={{
                     borderTop: theme => `1px solid ${theme.palette.divider}`,
                     mt: 8,
-                    py: [3, 6],
+                    py: [3, 1],
                 }}
             >
                 <Copyright />

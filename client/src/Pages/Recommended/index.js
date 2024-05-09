@@ -40,7 +40,7 @@ const Recommended = () => {
     }));
 
     return (
-        <Box sx={{ flexGrow: 1, marginTop: 2 }}>
+        <Box sx={{ flexGrow: 1, marginTop: 2, minHeight: 'calc(100vh - 79px)' }}>
             <Grid container spacing={2} sx={{ position: 'relative' }}>
                 <Grid item xs={12}>
                     <Paper
