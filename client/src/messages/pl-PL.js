@@ -46,6 +46,15 @@ const pl = {
                 vote_count: 'Liczba głosów',
             },
         },
+        about: {
+            tittle: 'To jest mój projekt szkoleniowy!',
+            text_1: 'Dzięki tej aplikacji React możesz stworzyć listę filmów i wysłać link do niej swoim przyjaciołom lub znajomym za pomocą: {social} lub skopiować link i skorzystać z innego, dogodnego dla Ciebie sposobu.',
+            text_2: 'Aplikacja umożliwia filtrowanie filmów po frazach kluczowych, czasie trwania, roku premiery czy gatunku. Istnieje także możliwość sortowania filmów.',
+            text_3: 'ДDo stworzenia tej aplikacji wykorzystano:',
+            text_4: 'Ze strony klienta:',
+            text_5: 'Od strony serwera:',
+        },
+
         empty_movies: 'Brak wybranych filmów',
         input_selected_section: 'Wpisz nazwę listy',
         delete: 'Usunąć',

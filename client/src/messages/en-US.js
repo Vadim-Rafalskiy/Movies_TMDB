@@ -46,6 +46,15 @@ const en = {
                 vote_count: 'Vote count',
             },
         },
+        about: {
+            tittle: 'This is my training project!',
+            text_1: 'This React application provides an opportunity to create a list of movies and send a link to it to your friends or acquaintances using: {social}, or copy the link and use another convenient way for you.',
+            text_2: 'The application allows you to filter movies by keywords, duration, year of release or genre. It is also possible to sort movies.',
+            text_3: 'The following were used to create this application:',
+            text_4: "From the client's side:",
+            text_5: 'From the server side:',
+        },
+
         empty_movies: 'No selected movies',
         input_selected_section: 'Put the list name',
         delete: 'Delete',

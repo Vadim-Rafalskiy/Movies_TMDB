@@ -58,7 +58,7 @@ function App() {
                 <Container
                     maxWidth="xl"
                     sx={{
-                        backgroundColor: theme => theme.palette.grey[300],
+                        backgroundColor: theme => theme.palette.grey[200],
                     }}
                 >
                     <main>

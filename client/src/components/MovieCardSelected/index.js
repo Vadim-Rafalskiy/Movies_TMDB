@@ -21,9 +21,6 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
         boxShadow: theme.shadows[5],
         position: 'relative',
         display: 'flex',
-        // '&:not(:last-child)': {
-        //     marginBottom: theme.spacing(1),
-        // },
     }));
 
     return (
