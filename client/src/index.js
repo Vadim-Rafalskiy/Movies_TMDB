@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home, Settings, Recommended } from './Pages';
+import { Home, Recommended } from './Pages';
 
 import { AppContextProvider } from './providers/appContext';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
 
 import { ErrorBoundary } from './components';
 import App from './App';
 import Movies from './Pages/Movies';
 import About from './Pages/About';
-//--------------------------------------
 
 function AppEntrypoint() {
     return (
@@ -53,17 +51,6 @@ root.render(
     <React.StrictMode>
         <RouterProvider router={router} />
     </React.StrictMode>
-    //---------------------------------------
 );
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//     <React.StrictMode>
-//         <BrowserRouter>
-//             <AppContextProvider>
-//                 <App />
-//             </AppContextProvider>
-//         </BrowserRouter>
-//     </React.StrictMode>
-// );
 
 reportWebVitals();

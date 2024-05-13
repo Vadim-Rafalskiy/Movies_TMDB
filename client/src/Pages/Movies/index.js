@@ -5,18 +5,18 @@ import { ToastContainer } from 'react-toastify';
 
 import { Filter, MovieCard, MovieSelectedSection, PagePagination } from '../../components';
 import { useMovies } from '../../hooks/useMovies';
+
 import { FILTERED_MOVIES_QUERY } from './querys.js';
 import { useFilters } from '../../hooks/useFilters/index.js';
 
 const Movies = () => {
-    const { setPage, filters, setFilter }=useFilters()
+    const { setPage, filters, setFilter } = useFilters();
     const { onCardDelete, onCardSelect, selectedMovies } = useMovies();
+
 
     const { loading, error, data } = useQuery(FILTERED_MOVIES_QUERY, {
         variables: { filters },
     });
-
-    
 
     if (error) return `Error! ${error}`;
 
@@ -26,7 +26,8 @@ const Movies = () => {
 
     const movies = data ? data.filteredMovies?.results : [];
 
-    const pageCount = data?.filteredMovies?.totalPages > 500 ? 500 : data?.filteredMovies?.totalPages;
+    const pageCount =
+        data?.filteredMovies?.totalPages > 500 ? 500 : data?.filteredMovies?.totalPages;
 
     const movieItems = movies.map(movie => (
         <Grid
@@ -52,7 +53,7 @@ const Movies = () => {
                 <Grid item xs={12}>
                     <Paper elevation={6} sx={{ padding: '10px' }}>
                         {/* ---------------------FILTERS----------------------------------------------------- */}
-                        <Filter onSubmit={handleFilterSubmit}  />
+                        <Filter onSubmit={handleFilterSubmit} />
                         {/* ---------------------FILTERS----------------------------------------------------- */}
                     </Paper>
                 </Grid>
@@ -72,8 +73,8 @@ const Movies = () => {
                         />
                     </Box>
                 </Grid>
-                <Grid item  xs={12} lg={3} sx={{ position: 'sticky' }}>
-                    <MovieSelectedSection 
+                <Grid item xs={12} lg={3} sx={{ position: 'sticky' }}>
+                    <MovieSelectedSection
                         onCardDelete={onCardDelete}
                         selectedMovies={selectedMovies}
                         sx={{ maxWidth: '320px' }}

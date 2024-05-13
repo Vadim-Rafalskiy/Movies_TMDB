@@ -6,7 +6,6 @@ export const LOCALES = {
     ENGLISH: 'en-US',
     UKRAINIAN: 'uk-UA',
     POLISH: 'pl-PL',
-    GERMAN: 'de-DE',
 };
 
 export const SORT_OPTIONS = [

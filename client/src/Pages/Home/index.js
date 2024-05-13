@@ -1,6 +1,7 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { Link as RouterLink } from 'react-router-dom';
+import React from 'react';
 
 function Copyright() {
     return (
@@ -11,8 +12,19 @@ function Copyright() {
 }
 
 const Home = () => {
+
     return (
-        <Box sx={{ bgcolor: 'background.paper', pt: 8, pb: 8 , minHeight:"calc(100vh - 79px)", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+        <Box
+            sx={{
+                bgcolor: 'background.paper',
+                pt: 8,
+                pb: 8,
+                minHeight: 'calc(100vh - 79px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+            }}
+        >
             <Container maxWidth="sm">
                 <Typography
                     component="h1"

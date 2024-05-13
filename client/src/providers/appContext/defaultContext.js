@@ -9,4 +9,8 @@ export const useDefaultContext = () => {
         locale:
             getFromStorage(LOCALES_STORAGE_KEY) || searchParams.get('locale') || LOCALES.ENGLISH,
     };
+    // return {
+    //     locale:
+    //         getFromStorage(LOCALES_STORAGE_KEY) || searchParams.get('locale') || LOCALES.ENGLISH,
+    // };
 };

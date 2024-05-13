@@ -25,6 +25,7 @@ export const useMovies = () => {
         },
         [selectedMovies]
     );
+    
     const onCardDelete = useCallback(
         movie => {
             setSelektedMovies(selectedMovies.filter(m => m.id !== movie.id));

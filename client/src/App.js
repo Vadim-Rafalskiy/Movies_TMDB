@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Container, CssBaseline } from '@mui/material';
 import {
     ApolloClient,
@@ -12,7 +12,6 @@ import {
 
 import { Navigation } from './components';
 import { AppContext } from './providers/appContext';
-import { Home, Settings, Recommended } from './Pages';
 import I18nProvider from './providers/i18n';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -68,26 +67,6 @@ function App() {
             </I18nProvider>
         </ApolloProvider>
     );
-    // return (
-    //     <ApolloProvider client={client}>
-    //         <CssBaseline />
-    //         <I18nProvider locale={state.locale}>
-    //             <Navigation />
-    //             <Container
-    //                 maxWidth="xl"
-    //                 sx={{
-    //                     backgroundColor: theme => theme.palette.grey[300],
-    //                 }}
-    //             >
-    //                 <Routes>
-    //                     <Route path="/" element={<Home />} />
-    //                     <Route path="settings" element={<Settings />} />
-    //                     <Route path="recommended" element={<Recommended />} />
-    //                 </Routes>
-    //             </Container>
-    //         </I18nProvider>
-    //     </ApolloProvider>
-    // );
 }
 
 export default App;

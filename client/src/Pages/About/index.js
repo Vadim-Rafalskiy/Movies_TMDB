@@ -18,6 +18,7 @@ const Tittle = ({ children, ...props }) => {
         </Typography>
     );
 };
+
 const Text = ({ children, ...props }) => {
     return (
         <Typography
