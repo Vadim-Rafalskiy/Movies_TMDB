@@ -12,7 +12,6 @@ function Copyright() {
 }
 
 const Home = () => {
-
     return (
         <Box
             sx={{
@@ -35,7 +34,13 @@ const Home = () => {
                 >
                     <FormattedMessage id="home.welcome"></FormattedMessage>
                 </Typography>
-                <Typography variant="h5" align="center" color="text.secondary" paragraph>
+                <Typography
+                    component="p"
+                    variant="h5"
+                    align="center"
+                    color="text.secondary"
+                    paragraph
+                >
                     <FormattedMessage id="home.text"></FormattedMessage>
                 </Typography>
                 <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">

@@ -3,7 +3,7 @@ import { LOCALES } from '../const';
 const en = {
     [LOCALES.ENGLISH]: {
         home:{
-            welcome:"Welcome",
+            welcome:"Welcome!",
             text:"Explore movies today with us!",
             button:"Explore",
         },

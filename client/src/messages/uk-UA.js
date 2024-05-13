@@ -3,7 +3,7 @@ import { LOCALES } from '../const';
 const uk = {
     [LOCALES.UKRAINIAN]: {
         home: {
-            welcome: 'Привіт',
+            welcome: 'Вітаю!',
             text: 'Дивіться фільми разом з нами!',
             button: 'Дивитись',
         },
