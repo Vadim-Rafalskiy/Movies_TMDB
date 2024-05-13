@@ -6,11 +6,16 @@ import { useDefaultContext } from './defaultContext';
 const AppContext = createContext();
 
 let reducer = (state, action) => {
+
+    
     switch (action.type) {
         case 'setLocale':
             saveToStorage(LOCALES_STORAGE_KEY, action.locale);
 
             return { ...state, locale: action.locale };
+        case 'setPageLocation':
+
+            return { ...state, pageLocation: action.pageLocation };
         default:
             return state;
     }

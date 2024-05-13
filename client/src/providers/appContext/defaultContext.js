@@ -8,6 +8,7 @@ export const useDefaultContext = () => {
     return {
         locale:
             getFromStorage(LOCALES_STORAGE_KEY) || searchParams.get('locale') || LOCALES.ENGLISH,
+        pageLocation: '/',
     };
     // return {
     //     locale:
