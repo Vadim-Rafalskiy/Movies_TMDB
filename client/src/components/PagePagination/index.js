@@ -1,4 +1,5 @@
 import { Box, Pagination, styled } from '@mui/material';
+import PropTypes from 'prop-types'
 
 const PagePagination = ({ pageCount, page, paginationHandler }) => {
     const NewPagination = styled(Pagination)(({ theme }) => ({
@@ -24,5 +25,16 @@ const PagePagination = ({ pageCount, page, paginationHandler }) => {
         </Box>
     );
 };
+
+PagePagination.defaultProps = {
+    pageCount: 1,
+    page: 1,
+};
+
+PagePagination.propTypes={
+    pageCount: PropTypes.number.isRequired,
+    page: PropTypes.number.isRequired,
+    paginationHandler: PropTypes.func.isRequired,
+}
 
 export default PagePagination;

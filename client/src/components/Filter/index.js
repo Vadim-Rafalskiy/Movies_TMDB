@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Field, Form } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { SortDirectionField } from './SortDirectionField';
 import { KeyWordInput } from './KeyWordInput';
@@ -118,5 +119,9 @@ const Filter = ({ onSubmit }) => {
         />
     );
 };
+
+Filter.propTypes={
+    onSubmit: PropTypes.func.isRequired,
+}
 
 export default Filter;

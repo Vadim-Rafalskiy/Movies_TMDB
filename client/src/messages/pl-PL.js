@@ -11,6 +11,8 @@ const pl = {
             home:"Strona główna",
             movies:"Kino",
             about:"O projekcie",
+            recommended:"Polecane filmy"
+
         },
         toast: {
             link_copied: 'Link skopiowany!',

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, IconButton, Menu } from '@mui/material';
@@ -40,5 +42,10 @@ const CardMenu = ({ children }) => {
         </Box>
     );
 };
+
+CardMenu.propTypes = {
+    children: PropTypes.node.isRequired,
+    
+}
 
 export default CardMenu;

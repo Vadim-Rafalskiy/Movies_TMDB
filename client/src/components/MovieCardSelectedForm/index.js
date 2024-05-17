@@ -3,6 +3,7 @@ import { Box, Divider, IconButton, InputBase, Paper } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import { Form, Field } from 'react-final-form';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types'
 
 const validate = value => (value ? undefined : 'Required');
 
@@ -18,9 +19,9 @@ const MovieCardSelectedForm = ({ onSubmit }) => {
                                 {({ input, meta }) => (
                                     <>
                                         <FormattedMessage id="input_selected_section">
-                                            {placeholder => (
+                                            {placeholder_1 => (
                                                 <InputBase
-                                                    placeholder={placeholder}
+                                                    placeholder_1={placeholder_1}
                                                     inputProps={{ 'aria-label': 'put list name' }}
                                                     sx={{ flex: 1 }}
                                                     {...input}
@@ -43,5 +44,9 @@ const MovieCardSelectedForm = ({ onSubmit }) => {
         </Box>
     );
 };
+
+MovieCardSelectedForm.propTypes={
+    onSubmit: PropTypes.func.isRequired,
+}
 
 export default MovieCardSelectedForm;

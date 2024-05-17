@@ -1,4 +1,6 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+
 import { InputBase, IconButton, Paper } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -24,5 +26,9 @@ const LinkFild = ({ link }) => {
         </Paper>
     );
 };
+
+LinkFild.propTypes={
+    link: PropTypes.string.isRequired,
+}
 
 export default LinkFild;

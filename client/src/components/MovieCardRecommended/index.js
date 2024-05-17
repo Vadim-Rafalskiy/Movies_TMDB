@@ -14,6 +14,7 @@ import {
     styled,
 } from '@mui/material';
 import translate from '../../utils/translate';
+import PropTypes from 'prop-types';
 
 const CardInfo = styled(CardContent)(({ theme }) => ({
     '&:last-child': {
@@ -34,8 +35,8 @@ const MovieCardRecommended = ({ movie }) => {
     const { title, overview, runtime, releaseDate, genres, popularity, voteCount, voteAverage } =
         movie;
 
-    const genresList = genres.map(({ name }) => {
-        return <GanresPlate>{name}</GanresPlate>;
+    const genresList = genres.map(({ name, id }) => {
+        return <GanresPlate key={id}>{name}</GanresPlate>;
     });
 
     const ItemBox = styled(Paper)(({ theme }) => ({
@@ -131,6 +132,34 @@ const MovieCardRecommended = ({ movie }) => {
             </Grid>
         </ItemBox>
     );
+};
+
+MovieCardRecommended.defaultProps = {
+    overview: '',
+    runtime: 0,
+    releaseDate: 'unknown date',
+    genres: [],
+    popularity: 0,
+    voteCount: 0,
+    voteAverage: 0,
+};
+
+MovieCardRecommended.propTypes = {
+    movie: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        overview: PropTypes.string.isRequired,
+        runtime: PropTypes.number.isRequired,
+        releaseDate: PropTypes.string.isRequired,
+        genres: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ),
+        popularity: PropTypes.number.isRequired,
+        voteCount: PropTypes.number.isRequired,
+        voteAverage: PropTypes.number.isRequired,
+    }),
 };
 
 export default MovieCardRecommended;

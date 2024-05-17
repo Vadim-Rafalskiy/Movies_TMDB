@@ -3,6 +3,7 @@ import noMoviesImage from '../../assets/film.jpg';
 import { MovieCardSelectedForm, ConfirmModal, MovieCardSelected } from '../../components';
 import { useState } from 'react';
 import translate from '../../utils/translate';
+import PropTypes from 'prop-types';
 
 const SelectedMovies = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -63,7 +64,11 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
     if (!selectedMovies.length) {
         return (
             <SelectedMovies elevation={6}>
-                <CardMedia sx={{ maxWidth: '250px', margin:"0 auto" }}  component="img" src={noMoviesImage} />
+                <CardMedia
+                    sx={{ maxWidth: '250px', margin: '0 auto' }}
+                    component="img"
+                    src={noMoviesImage}
+                />
                 <Typography variant="h5" mt={2} alignSelf="center">
                     {translate('empty_movies')}
                 </Typography>
@@ -96,6 +101,17 @@ const MovieSelectedSection = ({ onCardDelete, selectedMovies }) => {
             />
         </>
     );
+};
+
+MovieSelectedSection.propTypes = {
+    onCardDelete: PropTypes.func.isRequired,
+    selectedMovies: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            releaseDate: PropTypes.string.isRequired,
+            posterPath: PropTypes.string.isRequired,
+        }).isRequired
+    ).isRequired,
 };
 
 export default MovieSelectedSection;

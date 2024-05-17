@@ -28,7 +28,7 @@ const Recommended = () => {
     }
 
     const movieItems = movies.map(movie => (
-        <MovieCardRecommended isLoading={loading} movie={movie} />
+        <MovieCardRecommended key={movie.id} isLoading={loading} movie={movie} />
     ));
 
     const ItemBox = styled(Box)(({ theme }) => ({

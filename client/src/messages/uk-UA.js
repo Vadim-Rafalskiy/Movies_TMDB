@@ -11,6 +11,8 @@ const uk = {
             home: 'Головна',
             movies: 'Фільми',
             about: 'Про проект',
+            recommended:"Рекомендовані"
+
         },
         toast: {
             link_copied: 'Посилання скопійовано!',

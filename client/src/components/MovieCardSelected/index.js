@@ -62,18 +62,16 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
     );
 };
 
+MovieCardSelected.defaultProps = {
+    releaseDate: 'unknown date',
+};
+
+
 MovieCardSelected.propTypes = {
     movie: PropTypes.shape({
         title: PropTypes.string.isRequired,
         releaseDate: PropTypes.string.isRequired,
         posterPath: PropTypes.string.isRequired,
-        genres: PropTypes.arrayOf(
-            PropTypes.shape({
-                id: PropTypes.number,
-                name: PropTypes.string,
-            })
-        ),
-        runtime: PropTypes.number,
     }).isRequired,
     onCardDelete: PropTypes.func.isRequired,
 };

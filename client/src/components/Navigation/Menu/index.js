@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import PropTypes from "prop-types"
 
 import { Tab, Tabs } from '@mui/material';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import RecommendOutlinedIcon from '@mui/icons-material/RecommendOutlined';
 
 import { AppContext } from '../../../providers/appContext';
 import translate from '../../../utils/translate';
 
-const Menu = ({ tabs, tabItem,orientation }) => {
+const Menu = props => {
+    const { tabsProp, tabItem, orientation } = props;
     const { state, dispatch } = React.useContext(AppContext);
 
     const handleChange = (event, newValue) => {
@@ -22,7 +25,7 @@ const Menu = ({ tabs, tabItem,orientation }) => {
                 borderTop: 1,
                 borderColor: 'divider',
                 flexGrow: '1',
-                ...tabs
+                ...tabsProp,
             }}
             orientation={orientation}
             onChange={handleChange}
@@ -32,7 +35,7 @@ const Menu = ({ tabs, tabItem,orientation }) => {
             indicatorColor="inherit"
         >
             <Tab
-                sx={{...tabItem}}
+                sx={{ ...tabItem }}
                 label={translate('navigation.home')}
                 value="/"
                 icon={<HomeOutlinedIcon />}
@@ -41,7 +44,7 @@ const Menu = ({ tabs, tabItem,orientation }) => {
                 component={RouterLink}
             />
             <Tab
-                sx={{...tabItem}}
+                sx={{ ...tabItem }}
                 label={translate('navigation.movies')}
                 value="/movies"
                 icon={<SlideshowOutlinedIcon />}
@@ -50,7 +53,7 @@ const Menu = ({ tabs, tabItem,orientation }) => {
                 component={RouterLink}
             />
             <Tab
-                sx={{...tabItem}}
+                sx={{ ...tabItem }}
                 label={translate('navigation.about')}
                 value="/about"
                 icon={<InfoOutlinedIcon />}
@@ -58,8 +61,25 @@ const Menu = ({ tabs, tabItem,orientation }) => {
                 to="/about"
                 component={RouterLink}
             />
+            {state.pageLocation === '/recommended' && (
+                <Tab
+                    sx={{ ...tabItem }}
+                    label={translate('navigation.recommended')}
+                    value="/recommended"
+                    icon={<RecommendOutlinedIcon />}
+                    iconPosition="start"
+                    to="/recommended"
+                    component={RouterLink}
+                />
+            )}
         </Tabs>
     );
 };
+
+Menu.propTypes={
+    tabsProp: PropTypes.object,
+    tabItem: PropTypes.object,
+    orientation: PropTypes.string,
+}
 
 export default Menu;

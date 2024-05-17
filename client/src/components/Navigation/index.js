@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Box, Tabs, Tab, Drawer } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Box, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LanguageButton from './LanguageButton';
 import { AppContext } from '../../providers/appContext';
@@ -40,7 +40,7 @@ const Navigation = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Menu tabs={{ display: { xs: 'none', sm: 'block' } }} />
+                    <Menu tabsProp={{ display: { xs: 'none', sm: 'block' } }} />
 
                     <LanguageButton />
                 </Toolbar>

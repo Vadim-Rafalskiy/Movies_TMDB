@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import PropTypes from 'prop-types';
 
 import { Typography, Modal, Box } from '@mui/material';
 
@@ -58,5 +59,13 @@ const ConfirmModal = ({ title, link, onOpen, handleModalClose }) => {
         </div>
     );
 };
+
+// ConfirmModal.propTypes={
+//     title:PropTypes.string.isRequired,
+//     link:PropTypes.string.isRequired,
+//     onOpen: PropTypes.bool.isRequired,
+//     handleModalClose: PropTypes.func.isRequired
+
+// }
 
 export default ConfirmModal;

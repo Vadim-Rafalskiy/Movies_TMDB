@@ -11,6 +11,7 @@ const en = {
             home:"Home",
             movies:"Movies",
             about:"About",
+            recommended:"Recommended"
         },
         toast: {
             link_copied: 'Link copied!',

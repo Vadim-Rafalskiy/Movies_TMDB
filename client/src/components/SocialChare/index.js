@@ -1,5 +1,6 @@
 import { Stack } from '@mui/material';
 import { SOCIAL_BUTTON_SIZE } from '../../const';
+import PropTypes from 'prop-types'
 
 import {
     EmailShareButton,
@@ -32,5 +33,10 @@ const SocialShare = ({ title, link, ...props }) => {
         </Stack>
     );
 };
+
+SocialShare.propTypes={
+    title: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+}
 
 export default SocialShare;
