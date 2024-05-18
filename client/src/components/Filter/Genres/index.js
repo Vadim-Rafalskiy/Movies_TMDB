@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 
 
 export const Genres = () => {
-    const { loading, error, data: genres } = useQuery(GENRES_QUERY);
+    const {  error, data: genres } = useQuery(GENRES_QUERY);
 
     const [
         chekVal,

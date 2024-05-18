@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home, Recommended } from './Pages';
+import { Home, Recommended, Movies, About } from './Pages';
 
 import { AppContextProvider } from './providers/appContext';
 import reportWebVitals from './reportWebVitals';
 
 import { ErrorBoundary } from './components';
 import App from './App';
-import Movies from './Pages/Movies';
-import About from './Pages/About';
 
 function AppEntrypoint() {
     return (
