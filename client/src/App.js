@@ -32,6 +32,8 @@ function App() {
     const httpLink = new HttpLink({ uri: `${window.location.origin}/graphql` });
     // const httpLink = new HttpLink({ uri: 'http://localhost:4000/graphql' });
 
+    console.log('httpLink--', httpLink);
+
     const localeMidlware = new ApolloLink((operation, forward) => {
         operation.setContext(({ headers = {} }) => ({
             headers: {
