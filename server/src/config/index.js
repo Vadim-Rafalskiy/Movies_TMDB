@@ -4,5 +4,4 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 export default {
   IMAGE_BASE_PATH,
   BASE_URL,
-  // IMAGE_PATH
 };
