@@ -6,6 +6,8 @@ const pl = {
             welcome:"Witamy!",
             text:"Przeglądaj filmy już dziś razem z nami!",
             button:"Zacząć",
+            warning:'Aplikacja jest wdrażana w ramach bezpłatnej subskrypcji, więc pełne uruchomienie może zająć minutę.'
+
         },
         navigation: {
             home:"Strona główna",

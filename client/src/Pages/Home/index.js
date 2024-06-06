@@ -53,13 +53,25 @@ const Home = () => {
                         <FormattedMessage id="home.button"></FormattedMessage>
                     </Button>
                 </Stack>
+                <Box mt={10} p={2} sx={{border: theme => `2px solid ${theme.palette.error.light}`, borderRadius:'5px'}}>
+                    <Typography
+                        component="p"
+                        variant="h6"
+                        align="center"
+                        color="text.secondary"
+                        paragraph
+                        m={0}
+                    >
+                        <FormattedMessage id="home.warning"></FormattedMessage>
+                    </Typography>
+                </Box>
             </Container>
             <Container
                 maxWidth="md"
                 component="footer"
                 sx={{
                     borderTop: theme => `1px solid ${theme.palette.divider}`,
-                    mt: 8,
+                    mt: 4,
                     py: [3, 1],
                 }}
             >

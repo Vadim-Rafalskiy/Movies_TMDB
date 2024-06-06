@@ -6,6 +6,8 @@ const en = {
             welcome:"Welcome!",
             text:"Explore movies today with us!",
             button:"Explore",
+            warning:'The app is deployed on a free subscription, so it may take a minute to fully launch.'
+
         },
         navigation: {
             home:"Home",
