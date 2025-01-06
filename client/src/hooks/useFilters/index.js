@@ -19,13 +19,12 @@ export const useFilters = () => {
         [filters]
     );
 
-
     const setFilter = useCallback(
         filterFilds => {
             setFilterNormalize({
                 ...filters,
                 ...filterFilds,
-                with_keywords: filterFilds.with_keywords.map(item => item.id).join('|'),
+                with_keywords: filterFilds.with_keywords?.map(item => item.id).join('|'),
                 with_genres: filterFilds.with_genres?.length
                     ? filterFilds.with_genres.join(',')
                     : '',

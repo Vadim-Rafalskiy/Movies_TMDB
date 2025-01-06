@@ -13,7 +13,6 @@ const Movies = () => {
     const { setPage, filters, setFilter } = useFilters();
     const { onCardDelete, onCardSelect, selectedMovies } = useMovies();
 
-
     const { loading, error, data } = useQuery(FILTERED_MOVIES_QUERY, {
         variables: { filters },
     });
