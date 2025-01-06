@@ -43,7 +43,6 @@ const Filter = ({ onSubmit }) => {
                                 </Grid>
                                 <Grid item md={3} lg={3} sx={{ display: 'flex', gap: '10px' }}>
                                     <Button
-                                        disabled={submitting || pristine}
                                         type="submit"
                                         variant="contained"
                                         startIcon={<SearchIcon />}
@@ -88,7 +87,6 @@ const Filter = ({ onSubmit }) => {
                                                     display: 'flex',
                                                     flexDirection: { md: 'column' },
                                                     justifyContent: { md: 'center' },
-                                                    // md: { flexDirection: 'column',justifyContent: 'center', },
                                                     gap: '10px',
                                                 }}
                                             >
@@ -97,13 +95,7 @@ const Filter = ({ onSubmit }) => {
                                                 <RuntimeLte />
                                             </Box>
                                         </Grid>
-                                        <Grid
-                                            item
-                                            sm={12}
-                                            md={9.5}
-                                            lg={10}
-                                            sx={{  width: '100%' }}
-                                        >
+                                        <Grid item sm={12} md={9.5} lg={10} sx={{ width: '100%' }}>
                                             <Box>
                                                 <Genres />
                                             </Box>
@@ -120,8 +112,8 @@ const Filter = ({ onSubmit }) => {
     );
 };
 
-Filter.propTypes={
+Filter.propTypes = {
     onSubmit: PropTypes.func.isRequired,
-}
+};
 
 export default Filter;

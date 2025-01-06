@@ -1,12 +1,12 @@
-import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardMedia, CardContent, Typography, Tooltip, styled, Paper } from '@mui/material';
 import { CardBackdrop } from '../';
 
-import noImage from "../../assets/cinema_500px-750px.jpg"
+import noImage from '../../assets/cinema_500px-750px.jpg';
 
 const MovieCard = ({ movie, onCardSelect }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const CardInfo = styled(CardContent)(({ theme }) => ({
         '&:last-child': {
@@ -27,7 +27,7 @@ const MovieCard = ({ movie, onCardSelect }) => {
                     <CardMedia
                         component="img"
                         height="350"
-                        image={movie.posterPath?movie.posterPath:noImage}
+                        image={movie.posterPath ? movie.posterPath : noImage}
                         alt={movie.title}
                     />
                 </CardBackdrop>

@@ -25,7 +25,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
 
     return (
         <Tooltip title={movie.title}>
-            <MovieCard sx={{maxWidth:"320px", minWidth:"250px"}}>
+            <MovieCard sx={{ maxWidth: '320px', minWidth: '250px' }}>
                 <CardMenu>
                     <MenuItem
                         onClick={() => {
@@ -37,7 +37,7 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
                 </CardMenu>
                 <CardMedia
                     component="img"
-                    sx={{ width: '100px'}}
+                    sx={{ width: '100px' }}
                     image={movie.posterPath}
                     alt={movie.title}
                 />
@@ -65,7 +65,6 @@ const MovieCardSelected = ({ movie, onCardDelete }) => {
 MovieCardSelected.defaultProps = {
     releaseDate: 'unknown date',
 };
-
 
 MovieCardSelected.propTypes = {
     movie: PropTypes.shape({
