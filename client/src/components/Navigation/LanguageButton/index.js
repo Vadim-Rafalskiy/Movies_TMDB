@@ -27,10 +27,14 @@ const LanguageButton = () => {
         setAnchorEl(null);
     };
 
+    const languageButtonLabel = state.locale.split('-')[1];
+
     return (
         <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Typography>{state.locale.split('-')[1]}</Typography>
+                <Typography>
+                    {languageButtonLabel === 'US' ? 'ENG' : languageButtonLabel}
+                </Typography>
                 <IconButton
                     id="basic-button"
                     aria-controls={open ? 'basic-menu' : undefined}
